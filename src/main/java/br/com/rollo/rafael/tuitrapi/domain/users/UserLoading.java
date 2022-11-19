@@ -21,12 +21,4 @@ public class UserLoading implements UserDetailsService {
 		return possibleUser.orElseThrow(() -> 
 			new UsernameNotFoundException("Não foi encontrado usuário para o username: " + username));
 	}
-
-	public UserDetails loadUserById(Long id) {
-        Optional<User> possibleUser = users.findById(id);
-
-        return possibleUser.orElseThrow(
-            () -> new UsernameNotFoundException("Não foi encontrado usuário para o id: " + id));
-
-	}
 }
