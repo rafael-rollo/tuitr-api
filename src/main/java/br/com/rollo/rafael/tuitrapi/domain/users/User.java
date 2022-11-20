@@ -1,5 +1,6 @@
 package br.com.rollo.rafael.tuitrapi.domain.users;
 
+import org.apache.tomcat.jni.Local;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -48,6 +49,7 @@ public class User implements UserDetails {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.joinedAt = LocalDate.now();
     }
 
     public Long getId() {
@@ -122,7 +124,17 @@ public class User implements UserDetails {
         return Objects.hash(username);
     }
 
-	public String getPrimaryRoleName() {
+    @Override
+    public String toString() {
+        return "User{" +
+                ", fullName='" + fullName + '\'' +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", joinedAt=" + joinedAt +
+                '}';
+    }
+
+    public String getPrimaryRoleName() {
 		return this.authorities.get(0).getAuthority();
 	}
 

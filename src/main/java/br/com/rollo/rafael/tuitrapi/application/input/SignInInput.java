@@ -26,5 +26,4 @@ public class SignInInput {
     public UsernamePasswordAuthenticationToken build() {
         return new UsernamePasswordAuthenticationToken(this.username, this.password);
     }
-
 }

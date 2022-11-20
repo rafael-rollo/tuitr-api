@@ -1,17 +1,21 @@
 package br.com.rollo.rafael.tuitrapi.application;
 
+import br.com.rollo.rafael.tuitrapi.application.input.SignUpInput;
 import br.com.rollo.rafael.tuitrapi.application.output.UserProfileOutput;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
-import jdk.nashorn.internal.runtime.options.Option;
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.Optional;
 
 @Controller
@@ -25,9 +29,9 @@ public class UsersController {
         this.users = users;
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserProfileOutput> getUserProfileInfo(@PathVariable("id") Long userId) {
-        Optional<User> possibleUser = users.findById(userId);
+    @GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserProfileOutput> getUserProfileInfo(@PathVariable String username) {
+        Optional<User> possibleUser = users.findByUsername(username);
 
         if (!possibleUser.isPresent()) {
             return ResponseEntity.notFound().build();
@@ -35,6 +39,21 @@ public class UsersController {
 
         UserProfileOutput output = new UserProfileOutput(possibleUser.get());
         return ResponseEntity.ok(output);
+    }
+
+    @Transactional
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> userSignUp(@Valid @RequestBody SignUpInput input,
+                                           BCryptPasswordEncoder encoder,
+                                           UriComponentsBuilder URIBuilder) {
+        User newUser = users.save(input.build(encoder));
+
+        URI userPath = URIBuilder
+                .path("/api/user/{username}")
+                .buildAndExpand(newUser.getUsername())
+                .toUri();
+
+        return ResponseEntity.created(userPath).build();
     }
 
 }
