@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,7 +21,6 @@ public class User implements UserDetails {
 
     @Column(nullable = false, unique = true)
     private String username;
-
     private String password;
 
     @ManyToMany(fetch=FetchType.EAGER)
@@ -28,8 +28,16 @@ public class User implements UserDetails {
 
     @Column(nullable = false, unique = true)
     private String email;
-
     private String fullName;
+    private LocalDate birthDate;
+    private LocalDate joinedAt;
+    private String location;
+
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<User> followers = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<User> following = new ArrayList<>();
 
     /**
         * @deprecated
@@ -67,6 +75,18 @@ public class User implements UserDetails {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public LocalDate getJoinedAt() {
+        return joinedAt;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     @Override
