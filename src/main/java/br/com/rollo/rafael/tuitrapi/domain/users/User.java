@@ -45,15 +45,15 @@ public class User implements UserDetails, UpdatableUserInfo {
     public User() {	}
 
     public User(String username, String email, String password) {
-        this.username = username;
+        this(username);
         this.email = email;
         this.password = password;
-        this.joinedAt = LocalDate.now();
     }
 
     public User(String username) {
         this.username = username;
         this.joinedAt = LocalDate.now();
+        this.addAuthority(Role.CLIENT);
     }
 
     public Long getId() {
@@ -73,6 +73,10 @@ public class User implements UserDetails, UpdatableUserInfo {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.authorities;
+    }
+
+    public void addAuthority(Role role) {
+        this.authorities.add(role);
     }
 
     public String getEmail() {
@@ -132,7 +136,7 @@ public class User implements UserDetails, UpdatableUserInfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(username, user.username);
+        return username.equals(user.username);
     }
 
     @Override
@@ -153,6 +157,17 @@ public class User implements UserDetails, UpdatableUserInfo {
     public String getPrimaryRoleName() {
 		return this.authorities.get(0).getAuthority();
 	}
+
+	public boolean isUserOf(String username) {
+        return this.username.equals(username);
+    }
+
+    public boolean isAdmin() {
+        return this.authorities.stream()
+                .filter(role -> Role.ADMIN.equals(role))
+                .findFirst()
+                .isPresent();
+    }
 
     public void updateBy(UpdatableUserInfo updateInfo) {
         this.username = updateInfo.getUsername();

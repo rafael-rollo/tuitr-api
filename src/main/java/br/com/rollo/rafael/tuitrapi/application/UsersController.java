@@ -7,8 +7,10 @@ import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -63,11 +65,29 @@ public class UsersController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserProfileOutput> updateUserProfile(@PathVariable String username,
-                                                  @Valid @RequestBody UpdateProfileInput input) {
+                                                               @Valid @RequestBody UpdateProfileInput input,
+                                                               @AuthenticationPrincipal User loggedUser) {
+        boolean accessGranted = loggedUser.isUserOf(username) || loggedUser.isAdmin();
+        if (!accessGranted) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
         User user = input.build();
 
         User updatedUser = userUpdate.executeFor(username, user);
         return ResponseEntity.ok(UserProfileOutput.buildFrom(updatedUser));
     }
 
+    @Transactional
+    @DeleteMapping("/{username}")
+    public ResponseEntity<Void> deleteUserAccount(@PathVariable String username,
+                                                  @AuthenticationPrincipal User loggedUser) {
+        boolean accessGranted = loggedUser.isUserOf(username) || loggedUser.isAdmin();
+        if (!accessGranted) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        users.deleteByUsername(username);
+        return ResponseEntity.noContent().build();
+    }
 }
