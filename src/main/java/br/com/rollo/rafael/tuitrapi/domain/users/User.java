@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class User implements UserDetails {
+public class User implements UserDetails, UpdatableUserInfo {
 	
 	private static final long serialVersionUID = -5469393828158054187L;
 
@@ -153,4 +153,12 @@ public class User implements UserDetails {
     public String getPrimaryRoleName() {
 		return this.authorities.get(0).getAuthority();
 	}
+
+    public void updateBy(UpdatableUserInfo updateInfo) {
+        this.username = updateInfo.getUsername();
+        this.fullName = updateInfo.getFullName();
+        this.birthDate = updateInfo.getBirthDate();
+        this.location = updateInfo.getLocation();
+    }
 }
+

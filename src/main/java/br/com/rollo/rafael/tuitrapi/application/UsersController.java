@@ -1,10 +1,11 @@
 package br.com.rollo.rafael.tuitrapi.application;
 
 import br.com.rollo.rafael.tuitrapi.application.input.SignUpInput;
+import br.com.rollo.rafael.tuitrapi.application.input.UpdateProfileInput;
 import br.com.rollo.rafael.tuitrapi.application.output.UserProfileOutput;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
-import ch.qos.logback.core.net.SyslogOutputStream;
+import br.com.rollo.rafael.tuitrapi.domain.users.UserUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,10 +24,12 @@ import java.util.Optional;
 public class UsersController {
 
     private UserRepository users;
+    private UserUpdate userUpdate;
 
     @Autowired
-    public UsersController(UserRepository users) {
+    public UsersController(UserRepository users, UserUpdate userUpdate) {
         this.users = users;
+        this.userUpdate = userUpdate;
     }
 
     @GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -37,8 +40,7 @@ public class UsersController {
             return ResponseEntity.notFound().build();
         }
 
-        UserProfileOutput output = new UserProfileOutput(possibleUser.get());
-        return ResponseEntity.ok(output);
+        return ResponseEntity.ok(UserProfileOutput.buildFrom(possibleUser.get()));
     }
 
     @Transactional
@@ -54,6 +56,18 @@ public class UsersController {
                 .toUri();
 
         return ResponseEntity.created(userPath).build();
+    }
+
+    @Transactional
+    @PutMapping(value = "/{username}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserProfileOutput> updateUserProfile(@PathVariable String username,
+                                                  @Valid @RequestBody UpdateProfileInput input) {
+        User user = input.build();
+
+        User updatedUser = userUpdate.executeFor(username, user);
+        return ResponseEntity.ok(UserProfileOutput.buildFrom(updatedUser));
     }
 
 }

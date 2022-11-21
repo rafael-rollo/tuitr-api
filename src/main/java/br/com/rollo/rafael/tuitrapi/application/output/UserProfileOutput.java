@@ -13,7 +13,7 @@ public class UserProfileOutput {
     private LocalDate joinedAt;
     private String location;
 
-    public UserProfileOutput(User user) {
+    private UserProfileOutput(User user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
@@ -51,4 +51,7 @@ public class UserProfileOutput {
         return location;
     }
 
+    public static UserProfileOutput buildFrom(User user) {
+        return new UserProfileOutput(user);
+    }
 }
