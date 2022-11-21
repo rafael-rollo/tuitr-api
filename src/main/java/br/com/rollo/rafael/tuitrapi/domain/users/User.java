@@ -1,6 +1,5 @@
 package br.com.rollo.rafael.tuitrapi.domain.users;
 
-import org.apache.tomcat.jni.Local;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -52,6 +51,11 @@ public class User implements UserDetails {
         this.joinedAt = LocalDate.now();
     }
 
+    public User(String username) {
+        this.username = username;
+        this.joinedAt = LocalDate.now();
+    }
+
     public Long getId() {
         return this.id;
     }
@@ -79,8 +83,16 @@ public class User implements UserDetails {
         return fullName;
     }
 
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public LocalDate getJoinedAt() {
@@ -89,6 +101,10 @@ public class User implements UserDetails {
 
     public String getLocation() {
         return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     @Override
@@ -137,5 +153,4 @@ public class User implements UserDetails {
     public String getPrimaryRoleName() {
 		return this.authorities.get(0).getAuthority();
 	}
-
 }
