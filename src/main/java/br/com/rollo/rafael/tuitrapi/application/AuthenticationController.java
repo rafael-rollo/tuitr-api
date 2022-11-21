@@ -39,10 +39,9 @@ public class AuthenticationController {
 					.authenticate(authenticationToken);
 
 			String jwt = tokenGeneration.generateToken(authentication);
-			UserAuthenticationOutput tokenOutput =
-					new UserAuthenticationOutput((User) authentication.getPrincipal(), jwt);
 
-			return ResponseEntity.ok(tokenOutput);
+			User user = (User) authentication.getPrincipal();
+			return ResponseEntity.ok(UserAuthenticationOutput.buildFrom(user, jwt));
 
 		} catch (AuthenticationException e) {
 			return ResponseEntity.badRequest().build();

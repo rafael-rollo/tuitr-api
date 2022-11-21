@@ -8,7 +8,7 @@ public class UserAuthenticationOutput {
     private String role;
     private Authentication authentication;
     
-    public UserAuthenticationOutput(User user, String token) {
+    private UserAuthenticationOutput(User user, String token) {
         this.username = user.getUsername();
         this.role = user.getPrimaryRoleName();
         this.authentication = new Authentication("Bearer", token);
@@ -42,6 +42,10 @@ public class UserAuthenticationOutput {
 	    public String getTokenType() {
 	        return tokenType;
 	    }
+	}
+
+	public static UserAuthenticationOutput buildFrom(User user, String token) {
+    	return new UserAuthenticationOutput(user, token);
 	}
 
 }
