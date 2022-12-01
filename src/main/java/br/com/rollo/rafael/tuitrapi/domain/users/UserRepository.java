@@ -1,7 +1,10 @@
 package br.com.rollo.rafael.tuitrapi.domain.users;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Repository
@@ -16,4 +19,7 @@ public interface UserRepository extends Repository<User, Long>{
     Optional<User> findByEmail(String email);
 
     void deleteByUsername(String username);
+
+    @Query("select u from User u where u.id in (select follower.id from User u join u.followers follower where u.id = :userId)")
+    List<User> findAllFollowersBy(@Param("userId") Long id);
 }
