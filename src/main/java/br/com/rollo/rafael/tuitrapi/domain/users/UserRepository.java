@@ -22,4 +22,7 @@ public interface UserRepository extends Repository<User, Long>{
 
     @Query("select u from User u where u.id in (select follower.id from User u join u.followers follower where u.id = :userId)")
     List<User> findAllFollowersBy(@Param("userId") Long id);
+
+    @Query("select u from User u where u.id in (select following.id from User u join u.following following where u.id = :userId)")
+    List<User> findAllFollowingsBy(@Param("userId") Long id);
 }

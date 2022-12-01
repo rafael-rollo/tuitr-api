@@ -133,16 +133,16 @@ insert into role values ('ROLE_CLIENT');
 insert into role values ('ROLE_ADMIN');
 
 insert into user (email, username, full_name, password, joined_at)
-	values('admin@tuitr.com', 'tuitr', 'Admin Pereira', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+	values('admin@tuitr.com', 'tuitr', 'The Tuítr', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
 insert into user (email, username, full_name, password, joined_at)
-	values('client@gmail.com', 'cliente', 'Cliente da Silva', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2020-10-10');
+	values('john.doe@gmail.com', 'john-doe', 'John Doe', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '1970-06-01');
 
 insert into user_authorities (user_id, authorities_authority)
 	values(1,'ROLE_ADMIN');
 insert into user_authorities (user_id, authorities_authority) 
 	values(2,'ROLE_CLIENT');
 
--- cliente follows admin --------------------------------------------
+-- user follows admin --------------------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(1, 2);
