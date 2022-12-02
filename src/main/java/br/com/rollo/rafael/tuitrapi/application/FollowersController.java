@@ -1,7 +1,7 @@
 package br.com.rollo.rafael.tuitrapi.application;
 
 import br.com.rollo.rafael.tuitrapi.application.output.FollowerOutput;
-import br.com.rollo.rafael.tuitrapi.domain.followers.FollowerRemoval;
+import br.com.rollo.rafael.tuitrapi.domain.follows.FollowerRemoval;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

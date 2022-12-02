@@ -177,15 +177,20 @@ public class User implements UserDetails, UpdatableUserInfo {
         this.location = updateInfo.getLocation();
     }
 
-    public void removeFollower(User follower) {
-        this.followers = this.followers.stream()
-                .filter(u -> u.getId() != follower.getId())
-                .collect(Collectors.toList());
+    public void follow(User user) {
+        this.following.add(user);
+        user.followers.add(this);
     }
 
     public void removeFollowing(User user) {
         this.following = this.following.stream()
                 .filter(u -> u.getId() != user.getId())
+                .collect(Collectors.toList());
+    }
+
+    public void removeFollower(User follower) {
+        this.followers = this.followers.stream()
+                .filter(u -> u.getId() != follower.getId())
                 .collect(Collectors.toList());
     }
 }

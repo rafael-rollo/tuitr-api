@@ -1,4 +1,4 @@
-package br.com.rollo.rafael.tuitrapi.domain.followers;
+package br.com.rollo.rafael.tuitrapi.domain.follows;
 
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
