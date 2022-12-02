@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Entity
 public class User implements UserDetails, UpdatableUserInfo {
@@ -174,6 +175,18 @@ public class User implements UserDetails, UpdatableUserInfo {
         this.fullName = updateInfo.getFullName();
         this.birthDate = updateInfo.getBirthDate();
         this.location = updateInfo.getLocation();
+    }
+
+    public void removeFollower(User follower) {
+        this.followers = this.followers.stream()
+                .filter(u -> u.getId() != follower.getId())
+                .collect(Collectors.toList());
+    }
+
+    public void removeFollowing(User user) {
+        this.following = this.following.stream()
+                .filter(u -> u.getId() != user.getId())
+                .collect(Collectors.toList());
     }
 }
 
