@@ -5,10 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -35,10 +32,10 @@ public class User implements UserDetails, UpdatableUserInfo {
     private String location;
 
     @OneToMany(cascade = CascadeType.REMOVE)
-    private List<User> followers = new ArrayList<>();
+    private Set<User> followers = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.REMOVE)
-    private List<User> following = new ArrayList<>();
+    private Set<User> following = new HashSet<>();
 
     /**
         * @deprecated
@@ -185,13 +182,13 @@ public class User implements UserDetails, UpdatableUserInfo {
     public void removeFollowing(User user) {
         this.following = this.following.stream()
                 .filter(u -> u.getId() != user.getId())
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
     public void removeFollower(User follower) {
         this.followers = this.followers.stream()
                 .filter(u -> u.getId() != follower.getId())
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 }
 
