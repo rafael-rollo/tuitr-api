@@ -43,12 +43,6 @@ alter table user
 alter table user
     add constraint user_username unique (username);
 
-alter table user_followers
-    add constraint user_followers_followers_id unique (followers_id);
-
-alter table user_following
-    add constraint user_following_following_id unique (following_id);
-
 alter table user_authorities 
 	add constraint user_authorities_authority
 	foreign key (authorities_authority) 
@@ -135,16 +129,141 @@ insert into role values ('ROLE_ADMIN');
 insert into user (email, username, full_name, password, joined_at)
 	values('admin@tuitr.com', 'tuitr', 'The Tuítr', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
 insert into user (email, username, full_name, password, joined_at)
-	values('john.doe@gmail.com', 'john-doe', 'John Doe', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '1970-06-01');
+	values('john.doe@gmail.com', 'john-doe', 'John Doe', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+insert into user (email, username, full_name, password, joined_at)
+	values('jeovane.barbosa@zup.com.br', 'jeovanebarbosazup', 'Jeovane Barbosa', '$2a$10$h4HMatU5Bfr1zyYLBfV7ceZyF.C3r6M6sHYmB5Jf8SJUbCUH8BqYi', '2012-12-12');
+insert into user (email, username, full_name, password, joined_at)
+	values('noelle.figueiredo@zup.com.br', 'noellefigueiredozup', 'Noelle Figueiredo', '$2a$10$wYpgxRTbLqe9wq2sGvIWBujDzVRlrEgb5PBZxfRBVqsC0RkFe74kW', '2012-12-12');
+insert into user (email, username, full_name, password, joined_at)
+	values('italo.cavalcanti@zup.com.br', 'italocavalcantizup', 'Italo Cavalcanti', '$2a$10$Zh5fTqCmYps/lj2gsZFfkubC.g.s5Eu3kp51luo/b.YPAvujSy0bm', '2012-12-12');
+insert into user (email, username, full_name, password, joined_at)
+	values('luis.felipe@zup.com.br', 'luisfelipesantoszup', 'Luis Felipe Santos', '$2a$10$uhjKCIsqzHJmCGq3zUbyWuHN32JpkFvC2ELfkl2vZZ7Z6LePi/ICe', '2012-12-12');
+insert into user (email, username, full_name, password, joined_at)
+	values('laura.marson@zup.com.br', 'lauramarsonzup', 'Laura Marson', '$2a$10$W1zofnfIcz3RyBdS7CEZJ.huXVlH1L9bMMkah2d/6pIjCysTvwaaC', '2012-12-12');
 
 insert into user_authorities (user_id, authorities_authority)
 	values(1,'ROLE_ADMIN');
 insert into user_authorities (user_id, authorities_authority) 
 	values(2,'ROLE_CLIENT');
+insert into user_authorities (user_id, authorities_authority)
+    values(3,'ROLE_CLIENT');
+insert into user_authorities (user_id, authorities_authority)
+    values(4,'ROLE_CLIENT');
+insert into user_authorities (user_id, authorities_authority)
+    values(5,'ROLE_CLIENT');
+insert into user_authorities (user_id, authorities_authority)
+    values(6,'ROLE_CLIENT');
+insert into user_authorities (user_id, authorities_authority)
+    values(7,'ROLE_CLIENT');
 
--- user follows admin --------------------------------------------
+-- all follow admin --------------------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(1, 2);
 insert into user_following (user_id, following_id)
     values(2, 1);
+
+insert into user_followers (user_id, followers_id)
+    values(1, 3);
+insert into user_following (user_id, following_id)
+    values(3, 1);
+
+insert into user_followers (user_id, followers_id)
+    values(1, 4);
+insert into user_following (user_id, following_id)
+    values(4, 1);
+
+insert into user_followers (user_id, followers_id)
+    values(1, 5);
+insert into user_following (user_id, following_id)
+    values(5, 1);
+
+insert into user_followers (user_id, followers_id)
+    values(1, 6);
+insert into user_following (user_id, following_id)
+    values(6, 1);
+
+insert into user_followers (user_id, followers_id)
+    values(1, 7);
+insert into user_following (user_id, following_id)
+    values(7, 1);
+
+-- noelle, italo and pipe follow jeovane -------------------------------
+
+insert into user_followers (user_id, followers_id)
+    values(3, 4);
+insert into user_followers (user_id, followers_id)
+    values(3, 5);
+insert into user_followers (user_id, followers_id)
+    values(3, 6);
+
+insert into user_following (user_id, following_id)
+    values(4, 3);
+insert into user_following (user_id, following_id)
+    values(5, 3);
+insert into user_following (user_id, following_id)
+    values(6, 3);
+
+-- italo, pipe and laura follow noelle -------------------------------
+
+insert into user_followers (user_id, followers_id)
+    values(4, 5);
+insert into user_followers (user_id, followers_id)
+    values(4, 6);
+insert into user_followers (user_id, followers_id)
+    values(4, 7);
+
+insert into user_following (user_id, following_id)
+    values(5, 4);
+insert into user_following (user_id, following_id)
+    values(6, 4);
+insert into user_following (user_id, following_id)
+    values(7, 4);
+
+-- pipe, laura and jeovane follow italo -------------------------------
+
+insert into user_followers (user_id, followers_id)
+    values(5, 6);
+insert into user_followers (user_id, followers_id)
+    values(5, 7);
+insert into user_followers (user_id, followers_id)
+    values(5, 3);
+
+insert into user_following (user_id, following_id)
+    values(6, 5);
+insert into user_following (user_id, following_id)
+    values(7, 5);
+insert into user_following (user_id, following_id)
+    values(3, 5);
+
+-- laura, jeovane and noelle follow pipe -------------------------------
+
+insert into user_followers (user_id, followers_id)
+    values(6, 7);
+insert into user_followers (user_id, followers_id)
+    values(6, 3);
+insert into user_followers (user_id, followers_id)
+    values(6, 4);
+
+insert into user_following (user_id, following_id)
+    values(7, 6);
+insert into user_following (user_id, following_id)
+    values(3, 6);
+insert into user_following (user_id, following_id)
+    values(4, 6);
+
+-- jeovane, noelle and italo follow laura -------------------------------
+
+insert into user_followers (user_id, followers_id)
+    values(7, 3);
+insert into user_followers (user_id, followers_id)
+    values(7, 4);
+insert into user_followers (user_id, followers_id)
+    values(7, 5);
+
+insert into user_following (user_id, following_id)
+    values(3, 7);
+insert into user_following (user_id, following_id)
+    values(4, 7);
+insert into user_following (user_id, following_id)
+    values(5, 7);
