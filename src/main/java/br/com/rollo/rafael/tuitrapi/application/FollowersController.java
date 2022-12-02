@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,14 +31,14 @@ public class FollowersController {
         this.followerRemoval = followerRemoval;
     }
 
-    @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<FollowerOutput>> listFollowers(@AuthenticationPrincipal User loggedUser) {
         List<User> followers = users.findAllFollowersBy(loggedUser.getId());
         return ResponseEntity.ok(FollowerOutput.listFrom(followers));
     }
 
     @Transactional
-    @RequestMapping(value = "/{followerId}")
+    @DeleteMapping(value = "/{followerId}")
     public ResponseEntity<Void> removeFollower(@PathVariable Long followerId,
                                                @AuthenticationPrincipal User loggedUser) {
 

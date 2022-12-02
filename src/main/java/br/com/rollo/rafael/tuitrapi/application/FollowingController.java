@@ -10,7 +10,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.transaction.Transactional;
@@ -31,14 +33,14 @@ public class FollowingController {
         this.followAdding = followAdding;
     }
 
-    @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<FollowerOutput>> listFollowing(@AuthenticationPrincipal User loggedUser) {
         List<User> followingUsers = users.findAllFollowingsBy(loggedUser.getId());
         return ResponseEntity.ok(FollowerOutput.listFrom(followingUsers));
     }
 
     @Transactional
-    @RequestMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FollowerOutput> followUser(@PathVariable Long userId,
                                                      @AuthenticationPrincipal User loggedUser) {
 
