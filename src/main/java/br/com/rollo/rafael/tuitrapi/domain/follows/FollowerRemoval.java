@@ -17,8 +17,6 @@ public class FollowerRemoval {
 
     public void execute(User user, User follower) {
         User managedUser = users.findById(user.getId()).get();
-
         managedUser.removeFollower(follower);
-        follower.removeFollowing(managedUser);
     }
 }

@@ -45,7 +45,7 @@ public class FollowersController {
         Optional<User> follower = users.findById(followerId);
 
         if (!follower.isPresent()) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
         followerRemoval.execute(loggedUser, follower.get());

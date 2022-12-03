@@ -109,6 +109,22 @@ public class User implements UserDetails, UpdatableUserInfo {
         this.location = location;
     }
 
+    /**
+     * Return a read-only copy of the set of followers
+     * @return followers - a read-only set of followers
+     */
+    public Set<User> getFollowers() {
+        return Collections.unmodifiableSet(this.followers);
+    }
+
+    /**
+     * Return a read-only copy of the set of followed users
+     * @return following - a read-only set of followed users
+     */
+    public Set<User> getFollowing() {
+        return Collections.unmodifiableSet(this.following);
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -144,12 +160,7 @@ public class User implements UserDetails, UpdatableUserInfo {
 
     @Override
     public String toString() {
-        return "User{" +
-                ", fullName='" + fullName + '\'' +
-                "username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", joinedAt=" + joinedAt +
-                '}';
+        return "User{ username='" + username + "' }";
     }
 
     public String getPrimaryRoleName() {
@@ -179,16 +190,15 @@ public class User implements UserDetails, UpdatableUserInfo {
         user.followers.add(this);
     }
 
-    public void removeFollowing(User user) {
-        this.following = this.following.stream()
-                .filter(u -> u.getId() != user.getId())
-                .collect(Collectors.toSet());
+    public void unfollow(User user) {
+        this.following.remove(user);
+        user.followers.remove(this);
     }
 
     public void removeFollower(User follower) {
-        this.followers = this.followers.stream()
-                .filter(u -> u.getId() != follower.getId())
-                .collect(Collectors.toSet());
+        this.followers.remove(follower);
+        follower.following.remove(this);
     }
+
 }
 
