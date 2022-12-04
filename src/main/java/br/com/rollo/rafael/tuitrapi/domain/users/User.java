@@ -38,8 +38,8 @@ public class User implements UserDetails, UpdatableUserInfo {
     private Set<User> following = new HashSet<>();
 
     /**
-        * @deprecated
-        */
+     * @deprecated
+     */
     public User() {	}
 
     public User(String username, String email, String password) {
