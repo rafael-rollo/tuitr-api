@@ -1,6 +1,6 @@
 package br.com.rollo.rafael.tuitrapi.application;
 
-import br.com.rollo.rafael.tuitrapi.application.output.FollowerOutput;
+import br.com.rollo.rafael.tuitrapi.application.output.SimpleUserOutput;
 import br.com.rollo.rafael.tuitrapi.domain.follows.FollowerRemoval;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
@@ -32,9 +32,9 @@ public class FollowersController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<FollowerOutput>> listFollowers(@AuthenticationPrincipal User loggedUser) {
+    public ResponseEntity<List<SimpleUserOutput>> listFollowers(@AuthenticationPrincipal User loggedUser) {
         List<User> followers = users.findAllFollowersBy(loggedUser.getId());
-        return ResponseEntity.ok(FollowerOutput.listFrom(followers));
+        return ResponseEntity.ok(SimpleUserOutput.listFrom(followers));
     }
 
     @Transactional

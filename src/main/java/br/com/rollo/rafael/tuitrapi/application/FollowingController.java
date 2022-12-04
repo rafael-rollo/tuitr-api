@@ -1,6 +1,6 @@
 package br.com.rollo.rafael.tuitrapi.application;
 
-import br.com.rollo.rafael.tuitrapi.application.output.FollowerOutput;
+import br.com.rollo.rafael.tuitrapi.application.output.SimpleUserOutput;
 import br.com.rollo.rafael.tuitrapi.domain.follows.FollowAdding;
 import br.com.rollo.rafael.tuitrapi.domain.follows.FollowRemoval;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
@@ -33,15 +33,15 @@ public class FollowingController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<FollowerOutput>> listFollowing(@AuthenticationPrincipal User loggedUser) {
+    public ResponseEntity<List<SimpleUserOutput>> listFollowing(@AuthenticationPrincipal User loggedUser) {
         List<User> followingUsers = users.findAllFollowingsBy(loggedUser.getId());
-        return ResponseEntity.ok(FollowerOutput.listFrom(followingUsers));
+        return ResponseEntity.ok(SimpleUserOutput.listFrom(followingUsers));
     }
 
     @Transactional
     @PostMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FollowerOutput> followUser(@PathVariable Long userId,
-                                                     @AuthenticationPrincipal User loggedUser) {
+    public ResponseEntity<SimpleUserOutput> followUser(@PathVariable Long userId,
+                                                       @AuthenticationPrincipal User loggedUser) {
         Optional<User> following = users.findById(userId);
 
         if (!following.isPresent()) {
@@ -51,7 +51,7 @@ public class FollowingController {
         User followed = followAdding.execute(loggedUser, following.get());
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(FollowerOutput.buildFrom(followed));
+                .body(SimpleUserOutput.buildFrom(followed));
     }
 
     @Transactional

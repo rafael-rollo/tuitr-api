@@ -5,12 +5,12 @@ import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FollowerOutput {
+public class SimpleUserOutput {
     private Long id;
     private String username;
     private String fullName;
 
-    private FollowerOutput(User user) {
+    private SimpleUserOutput(User user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.fullName = user.getFullName();
@@ -28,13 +28,13 @@ public class FollowerOutput {
         return fullName;
     }
 
-    public static FollowerOutput buildFrom(User user) {
-        return new FollowerOutput(user);
+    public static SimpleUserOutput buildFrom(User user) {
+        return new SimpleUserOutput(user);
     }
 
-    public static List<FollowerOutput> listFrom(List<User> users) {
+    public static List<SimpleUserOutput> listFrom(List<User> users) {
         return users.stream()
-                .map(FollowerOutput::buildFrom)
+                .map(SimpleUserOutput::buildFrom)
                 .collect(Collectors.toList());
     }
 }

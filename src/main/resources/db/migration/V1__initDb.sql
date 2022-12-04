@@ -311,3 +311,57 @@ insert into user_following (user_id, following_id)
     values(4, 7);
 insert into user_following (user_id, following_id)
     values(5, 7);
+
+---- posts data ---------------------------------------------------------
+
+-- post id 1
+insert into post (created_at, text_content, author_id)
+    values ('2022-12-04T17:34:48.000', 'Hi everyone!', 2);
+
+insert into post_lovers (post_id, lovers_id)
+    values (1, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 4);
+
+-- post id 2
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2022-12-04T17:35:49.000', 'Welcome to the Tuítr', 1, 1);
+
+insert into post_lovers (post_id, lovers_id)
+    values (2, 2);
+insert into post_lovers (post_id, lovers_id)
+    values (2, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (2, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (2, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (2, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (2, 7);
+
+-- post id 3
+insert into post (created_at, text_content, author_id)
+    values ('2022-12-04T17:36:50.000', 'O hexa ainda vem!', 3);
+
+insert into post_lovers (post_id, lovers_id)
+    values (3, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 7);
+
+-- post id 4
+insert into post (created_at, author_id, reposting_id)
+    values ('2022-12-04T17:38:52.000', 4, 3);
+
+insert into post_lovers (post_id, lovers_id)
+    values (4, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (4, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (4, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (4, 7);
