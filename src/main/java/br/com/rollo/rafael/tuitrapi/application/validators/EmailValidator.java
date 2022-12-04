@@ -10,7 +10,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.Optional;
 
 @Component
-public class EmailValidator implements ConstraintValidator<ValidEmail, String> {
+public class EmailValidator implements ConstraintValidator<UniqueEmail, String> {
 
     static final String REGEX_PATTERN = "^[\\w\\d]([-_.]?[\\w\\d])*@[\\w\\d]([-.]?[\\w\\d])*\\.([a-z]{2,20})$";
 

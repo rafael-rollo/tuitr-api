@@ -1,7 +1,7 @@
 package br.com.rollo.rafael.tuitrapi.application.input;
 
-import br.com.rollo.rafael.tuitrapi.application.validators.ValidEmail;
-import br.com.rollo.rafael.tuitrapi.application.validators.ValidUsername;
+import br.com.rollo.rafael.tuitrapi.application.validators.UniqueEmail;
+import br.com.rollo.rafael.tuitrapi.application.validators.UniqueUsername;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -10,14 +10,14 @@ import javax.validation.constraints.NotBlank;
 public class SignUpInput {
 
     @NotBlank
-    @ValidUsername
+    @UniqueUsername
     private String username;
 
     @NotBlank
     private String password;
 
     @NotBlank
-    @ValidEmail
+    @UniqueEmail
     private String email;
 
     public void setUsername(String username) {

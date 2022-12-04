@@ -9,4 +9,5 @@ public interface PostRepository extends Repository<Post, Long> {
 
     List<Post> findAllByAuthorUsername(String username);
 
+    Post save(Post post);
 }

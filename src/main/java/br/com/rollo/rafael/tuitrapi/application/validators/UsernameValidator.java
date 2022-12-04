@@ -10,7 +10,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.Optional;
 
 @Component
-public class UsernameValidator implements ConstraintValidator<ValidUsername, String> {
+public class UsernameValidator implements ConstraintValidator<UniqueUsername, String> {
 
     private UserRepository users;
 

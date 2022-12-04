@@ -1,6 +1,6 @@
 package br.com.rollo.rafael.tuitrapi.application.input;
 
-import br.com.rollo.rafael.tuitrapi.application.validators.ValidUsername;
+import br.com.rollo.rafael.tuitrapi.application.validators.UniqueUsername;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 public class UpdateProfileInput {
 
-    @ValidUsername
+    @UniqueUsername
     private String username;
 
     @Length(max = 70)
