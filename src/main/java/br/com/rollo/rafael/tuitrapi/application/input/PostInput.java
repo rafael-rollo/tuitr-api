@@ -3,10 +3,7 @@ package br.com.rollo.rafael.tuitrapi.application.input;
 import br.com.rollo.rafael.tuitrapi.application.validators.ImageResourcePath;
 import br.com.rollo.rafael.tuitrapi.domain.posts.Post;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
-import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
 import org.hibernate.validator.constraints.Length;
-
-import javax.validation.constraints.NotNull;
 
 public class PostInput {
 
