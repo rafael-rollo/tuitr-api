@@ -1,5 +1,6 @@
 package br.com.rollo.rafael.tuitrapi.application.input;
 
+import br.com.rollo.rafael.tuitrapi.application.validators.ImageResourcePath;
 import br.com.rollo.rafael.tuitrapi.application.validators.UniqueUsername;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.hibernate.validator.constraints.Length;
@@ -16,6 +17,9 @@ public class UpdateProfileInput {
     @Length(max = 70)
     private String fullName;
 
+    @ImageResourcePath
+    private String profilePicturePath;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past
     private LocalDate birthDate;
@@ -29,6 +33,10 @@ public class UpdateProfileInput {
         this.fullName = fullName;
     }
 
+    public void setProfilePicturePath(String profilePicturePath) {
+        this.profilePicturePath = profilePicturePath;
+    }
+
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
@@ -40,6 +48,7 @@ public class UpdateProfileInput {
     public User build() {
         User user = new User(this.username);
         user.setFullName(this.fullName);
+        user.setProfilePicturePath(this.profilePicturePath);
         user.setBirthDate(this.birthDate);
         user.setLocation(this.location);
 

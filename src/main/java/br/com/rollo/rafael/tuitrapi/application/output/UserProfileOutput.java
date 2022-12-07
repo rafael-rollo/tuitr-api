@@ -9,6 +9,7 @@ public class UserProfileOutput {
     private String username;
     private String email;
     private String fullName;
+    private String profilePicturePath;
     private LocalDate birthDate;
     private LocalDate joinedAt;
     private String location;
@@ -18,6 +19,7 @@ public class UserProfileOutput {
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.fullName = user.getFullName();
+        this.profilePicturePath = user.getProfilePicturePath();
         this.birthDate = user.getBirthDate();
         this.joinedAt = user.getJoinedAt();
         this.location = user.getLocation();
@@ -37,6 +39,10 @@ public class UserProfileOutput {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public String getProfilePicturePath() {
+        return profilePicturePath;
     }
 
     public LocalDate getBirthDate() {

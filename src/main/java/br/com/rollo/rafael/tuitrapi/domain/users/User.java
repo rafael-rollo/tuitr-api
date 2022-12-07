@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Entity
 public class User implements UserDetails, UpdatableUserInfo {
@@ -27,6 +26,7 @@ public class User implements UserDetails, UpdatableUserInfo {
     @Column(nullable = false, unique = true)
     private String email;
     private String fullName;
+    private String profilePicturePath;
     private LocalDate birthDate;
     private LocalDate joinedAt;
     private String location;
@@ -87,6 +87,14 @@ public class User implements UserDetails, UpdatableUserInfo {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getProfilePicturePath() {
+        return profilePicturePath;
+    }
+
+    public void setProfilePicturePath(String profilePicturePath) {
+        this.profilePicturePath = profilePicturePath;
     }
 
     public LocalDate getBirthDate() {
@@ -181,6 +189,7 @@ public class User implements UserDetails, UpdatableUserInfo {
     public void updateBy(UpdatableUserInfo updateInfo) {
         this.username = updateInfo.getUsername();
         this.fullName = updateInfo.getFullName();
+        this.profilePicturePath = updateInfo.getProfilePicturePath();
         this.birthDate = updateInfo.getBirthDate();
         this.location = updateInfo.getLocation();
     }

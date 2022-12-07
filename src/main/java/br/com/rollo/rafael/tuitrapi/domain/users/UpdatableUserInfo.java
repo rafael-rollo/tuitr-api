@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public interface UpdatableUserInfo {
     String getUsername();
     String getFullName();
+    String getProfilePicturePath();
     LocalDate getBirthDate();
     String getLocation();
 }
