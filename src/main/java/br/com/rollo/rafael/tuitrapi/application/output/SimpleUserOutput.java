@@ -9,11 +9,13 @@ public class SimpleUserOutput {
     private Long id;
     private String username;
     private String fullName;
+    private String profilePicturePath;
 
     private SimpleUserOutput(User user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.fullName = user.getFullName();
+        this.profilePicturePath = user.getProfilePicturePath();
     }
 
     public Long getId() {
@@ -26,6 +28,10 @@ public class SimpleUserOutput {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public String getProfilePicturePath() {
+        return profilePicturePath;
     }
 
     public static SimpleUserOutput buildFrom(User user) {
