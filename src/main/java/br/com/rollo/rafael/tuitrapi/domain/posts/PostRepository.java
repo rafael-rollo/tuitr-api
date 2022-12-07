@@ -13,6 +13,8 @@ public interface PostRepository extends Repository<Post, Long> {
 
     Post save(Post post);
 
-    @Query("select p from Post p where p.author.id in (select following.id from User u join u.following following where u.id = :userId)")
+    @Query("select p from Post p " +
+            "where p.author.id in (select following.id from User u join u.following following where u.id = :userId) " +
+            "order by p.createdAt desc")
     List<Post> findPostsOfFollowedAccountsBy(@Param("userId") Long userId);
 }
