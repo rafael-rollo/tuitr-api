@@ -48,7 +48,7 @@ public class SwaggerConfiguration {
                 "An API to serve clients inspired by the Twitter application.",
                 "1.0",
                 "urn:tos",
-                new Contact("Rafael Rollo", "", "rafaelrollo92@gmail.com"),
+                new Contact("Rafael Rollo", "https://github.com/rafael-rollo/tuitr-api", "rafaelrollo92@gmail.com"),
                 "MIT License",
                 "https://www.mit.edu/~amini/LICENSE.md",
                 Collections.emptyList());
