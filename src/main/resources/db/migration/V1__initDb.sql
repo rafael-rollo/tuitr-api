@@ -170,9 +170,9 @@ insert into role values ('ROLE_CLIENT');
 insert into role values ('ROLE_ADMIN');
 
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('admin@tuitr.com', 'tuitr', 'The Tuítr', 'https://cdn0.iconfinder.com/data/icons/social-media-handdrawn/500/twitter-1024.png', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+	values('admin@tuitr.com', 'tuitr', 'The Tuítr', 'https://avatars.githubusercontent.com/u/50278?s=200&v=4', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('john.doe@gmail.com', 'john-doe', 'John Doe', 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman2-2-1024.png', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+	values('john.doe@gmail.com', 'john-doe', 'John Doe', 'https://lh3.googleusercontent.com/a/AEdFTp7FQ7etNuQigKEiXONfHUPbVuicba_c4EErwaFQ=s88-w88-h88-c-k', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
 
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
 	values('jeovane.barbosa@zup.com.br', 'jeovanebarbosazup', 'Jeovane Barbosa', 'https://lh3.googleusercontent.com/a-/AD5-WCmzTNM1O5Nvo7NKZK4DmRDYyaNVgnWdZ3U5qVuD=s64-p-k-rw-no', '$2a$10$h4HMatU5Bfr1zyYLBfV7ceZyF.C3r6M6sHYmB5Jf8SJUbCUH8BqYi', '2012-12-12');
@@ -194,7 +194,7 @@ insert into user (email, username, full_name, profile_picture_path, password, jo
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
 	values('raline.silva@zup.com.br', 'ralinesilvazup', 'Raline Silva', 'https://lh3.googleusercontent.com/a-/AD5-WCmgmcAF_lemYF1ItIU2ipjFj3RqxzEcFJP1v65m=s88-w88-h88-c-k', '$2a$10$D0KVMYEx1LFgojyN.bzNJumQ9PjTdn1ZpJnXw/cbh7fxuftDXO.mu', '2012-12-12');
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('stella.medeiros@zup.com.br', 'stellamedeiroszup', 'Stella Medeiros', 'https://images-zenity.zup.com.br/public/images/enVwaW50ZXJuYWxfenVwX2FwcDpyZWFsd2F2ZS1pbWFnZXMvenVwaW50ZXJuYWxfenVwX2FwcDo2ZTlhMDE2OS03ZjQwLTQ0ZjgtYTQwYS02NzU4YzlhOGMzODguanBn', '$2a$10$pwJ7EQYtWhCWWbSfTblTfeohpjyiF/FqId5CK4hT/pjwdzxcVMxAK', '2012-12-12');
+	values('stella.medeiros@zup.com.br', 'stellamedeiroszup', 'Stella Medeiros', 'https://lh3.googleusercontent.com/a/AEdFTp49yInXI7WJGabnD2B4llwZrnFlbdnYs_pWJIIC=s88-w88-h88-c-k', '$2a$10$pwJ7EQYtWhCWWbSfTblTfeohpjyiF/FqId5CK4hT/pjwdzxcVMxAK', '2012-12-12');
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
 	values('thiago.pereira@zup.com.br', 'thiagopereirazup', 'Thiago Pereira', 'https://lh3.googleusercontent.com/a-/AD5-WCmkl_Cb3XCrIp4Kjv4Ckl3pIp1qO9vG5eF3yKkM=s64-p-k-rw-no', '$2a$10$k6wk0ESGdJepV5EhMfApcOL6T7o6Elg9h1XLhW9ojsUN/qKKx8llO', '2012-12-12');
 
