@@ -1,6 +1,7 @@
 package br.com.rollo.rafael.tuitrapi.application.output;
 
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 
@@ -10,7 +11,11 @@ public class UserProfileOutput {
     private String email;
     private String fullName;
     private String profilePicturePath;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate joinedAt;
     private String location;
 

@@ -1,6 +1,8 @@
 package br.com.rollo.rafael.tuitrapi.application.output;
 
 import br.com.rollo.rafael.tuitrapi.domain.posts.Post;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.stream.Collectors;
 public class PostOutput {
 
     private Long id;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
     private String textContent;
     private String imagePath;
