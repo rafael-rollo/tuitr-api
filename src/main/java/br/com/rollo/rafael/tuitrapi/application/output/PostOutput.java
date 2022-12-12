@@ -2,7 +2,6 @@ package br.com.rollo.rafael.tuitrapi.application.output;
 
 import br.com.rollo.rafael.tuitrapi.domain.posts.Post;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +19,8 @@ public class PostOutput {
     private PostOutput replyingTo;
     private PostOutput reposting;
     private int loves;
+    private int replies;
+    private int reposts;
 
     private PostOutput(Post post) {
         this.id = post.getId();
@@ -34,6 +35,8 @@ public class PostOutput {
                 ? new PostOutput(post.getReposting())
                 : null;
         this.loves = post.getLovers().size();
+        this.replies = post.getReplies().size();
+        this.reposts = post.getReposts().size();
     }
 
     public Long getId() {
@@ -66,6 +69,14 @@ public class PostOutput {
 
     public int getLoves() {
         return loves;
+    }
+
+    public int getReplies() {
+        return replies;
+    }
+
+    public int getReposts() {
+        return reposts;
     }
 
     public static PostOutput buildFrom(Post post) {

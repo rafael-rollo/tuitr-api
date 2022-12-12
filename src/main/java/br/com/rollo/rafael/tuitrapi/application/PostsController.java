@@ -48,7 +48,7 @@ public class PostsController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PostOutput>> listPosts(@AuthenticationPrincipal User loggedUser) {
-        List<Post> posts = this.posts.findAllByAuthorUsername(loggedUser.getUsername());
+        List<Post> posts = this.posts.findAllPostsOf(loggedUser);
         return ResponseEntity.ok(PostOutput.listFrom(posts));
     }
 

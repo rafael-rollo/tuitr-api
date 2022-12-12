@@ -20,7 +20,7 @@ public class User implements UserDetails, UpdatableUserInfo {
     private String username;
     private String password;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> authorities = new ArrayList<>();
 
     @Column(nullable = false, unique = true)

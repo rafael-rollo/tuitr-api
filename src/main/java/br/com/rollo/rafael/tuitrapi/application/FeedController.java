@@ -27,7 +27,7 @@ public class FeedController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PostOutput>> loadFeed(@AuthenticationPrincipal User loggedUser) {
-        List<Post> posts = this.posts.findPostsOfFollowedAccountsBy(loggedUser.getId());
+        List<Post> posts = this.posts.findAllPostsOfFollowedAccountsBy(loggedUser);
         return ResponseEntity.ok(PostOutput.listFrom(posts));
     }
 

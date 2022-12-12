@@ -5,10 +5,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Post {
@@ -30,8 +27,14 @@ public class Post {
     @ManyToOne
     private Post replyingTo;
 
+    @OneToMany(mappedBy = "replyingTo")
+    private List<Post> replies = new ArrayList<>();
+
     @ManyToOne
     private Post reposting;
+
+    @OneToMany(mappedBy = "reposting")
+    private List<Post> reposts = new ArrayList<>();
 
     @ManyToMany
     private Set<User> lovers = new HashSet<>();
@@ -73,12 +76,20 @@ public class Post {
         return replyingTo;
     }
 
+    public List<Post> getReplies() {
+        return replies;
+    }
+
     public boolean isReply() {
         return replyingTo != null;
     }
 
     public Post getReposting() {
         return reposting;
+    }
+
+    public List<Post> getReposts() {
+        return reposts;
     }
 
     public boolean isRepost() {
