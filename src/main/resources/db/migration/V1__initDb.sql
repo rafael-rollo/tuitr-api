@@ -422,6 +422,13 @@ insert into user_followers (user_id, followers_id)
 insert into user_following (user_id, following_id)
     values(13, 15);
 
+-- rollo follows john doe ----------------------------------------------
+
+insert into user_followers (user_id, followers_id)
+    values(2, 14);
+insert into user_following (user_id, following_id)
+    values(14, 2);
+
 -- noelle, italo and pipe follow jeovane -------------------------------
 
 insert into user_followers (user_id, followers_id)
