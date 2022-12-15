@@ -614,7 +614,7 @@ insert into user_following (user_id, following_id)
 
 -- post id 1
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-04T17:34:48.000', 'Hi everyone!', 2);
+    values ('2022-12-06T17:34:48.000', 'Hi everyone!', 2);
 
 insert into post_lovers (post_id, lovers_id)
     values (1, 3);
@@ -623,7 +623,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 2
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2022-12-04T17:35:49.000', 'Welcome to the Tuítr', 1, 1);
+    values ('2022-12-07T17:35:49.000', 'Welcome to the Tuítr', 1, 1);
 
 insert into post_lovers (post_id, lovers_id)
     values (2, 2);
@@ -640,7 +640,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 3
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-04T17:36:50.000', 'O hexa ainda vem!', 3);
+    values ('2022-12-07T17:36:50.000', 'O hexa ainda vem!', 3);
 
 insert into post_lovers (post_id, lovers_id)
     values (3, 4);
@@ -653,7 +653,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 4
 insert into post (created_at, author_id, reposting_id)
-    values ('2022-12-04T17:38:52.000', 4, 3);
+    values ('2022-12-07T17:38:52.000', 4, 3);
 
 insert into post_lovers (post_id, lovers_id)
     values (4, 3);
@@ -666,7 +666,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 5
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T17:34:48.000', 'Hi everyone!', 3);
+    values ('2022-12-08T17:34:48.000', 'Hi everyone!', 3);
 
 insert into post_lovers (post_id, lovers_id)
     values (5, 4);
@@ -675,7 +675,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 6
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T18:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 3);
+    values ('2022-12-08T18:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 3);
 
 insert into post_lovers (post_id, lovers_id)
     values (6, 4);
@@ -684,7 +684,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 7
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T18:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 3);
+    values ('2022-12-08T18:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 3);
 
 insert into post_lovers (post_id, lovers_id)
     values (7, 4);
@@ -693,7 +693,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 8
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T18:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 4);
+    values ('2022-12-09T18:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 4);
 
 insert into post_lovers (post_id, lovers_id)
     values (8, 5);
@@ -702,7 +702,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 9
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 4);
+    values ('2022-12-09T19:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 4);
 
 insert into post_lovers (post_id, lovers_id)
     values (9, 5);
@@ -711,7 +711,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 10
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 5);
+    values ('2022-12-09T19:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 5);
 
 insert into post_lovers (post_id, lovers_id)
     values (10, 6);
@@ -720,7 +720,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 11
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 5);
+    values ('2022-12-09T19:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 5);
 
 insert into post_lovers (post_id, lovers_id)
     values (11, 6);
@@ -729,7 +729,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 12
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 6);
+    values ('2022-12-09T19:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 6);
 
 insert into post_lovers (post_id, lovers_id)
     values (12, 7);
@@ -738,7 +738,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 13
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 6);
+    values ('2022-12-10T19:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 6);
 
 insert into post_lovers (post_id, lovers_id)
     values (13, 7);
@@ -747,7 +747,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 14
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 7);
+    values ('2022-12-10T19:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 7);
 
 insert into post_lovers (post_id, lovers_id)
     values (14, 3);
@@ -756,7 +756,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 15
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 7);
+    values ('2022-12-10T19:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 7);
 
 insert into post_lovers (post_id, lovers_id)
     values (15, 3);
@@ -765,7 +765,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 16
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T19:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 8);
+    values ('2022-12-10T19:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 8);
 
 insert into post_lovers (post_id, lovers_id)
     values (16, 9);
@@ -774,7 +774,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 17
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 8);
+    values ('2022-12-11T20:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 8);
 
 insert into post_lovers (post_id, lovers_id)
     values (17, 9);
@@ -783,7 +783,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 18
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 9);
+    values ('2022-12-11T20:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 9);
 
 insert into post_lovers (post_id, lovers_id)
     values (18, 10);
@@ -792,7 +792,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 19
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 9);
+    values ('2022-12-11T20:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 9);
 
 insert into post_lovers (post_id, lovers_id)
     values (19, 10);
@@ -801,7 +801,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 20
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 10);
+    values ('2022-12-11T20:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 10);
 
 insert into post_lovers (post_id, lovers_id)
     values (20, 11);
@@ -810,7 +810,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 21
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 10);
+    values ('2022-12-12T20:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 10);
 
 insert into post_lovers (post_id, lovers_id)
     values (21, 11);
@@ -819,7 +819,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 22
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 11);
+    values ('2022-12-12T20:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 11);
 
 insert into post_lovers (post_id, lovers_id)
     values (22, 12);
@@ -828,7 +828,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 23
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 11);
+    values ('2022-12-12T20:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 11);
 
 insert into post_lovers (post_id, lovers_id)
     values (23, 12);
@@ -837,7 +837,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 24
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T20:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 12);
+    values ('2022-12-13T20:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 12);
 
 insert into post_lovers (post_id, lovers_id)
     values (24, 13);
@@ -846,7 +846,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 25
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T21:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 12);
+    values ('2022-12-13T21:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 12);
 
 insert into post_lovers (post_id, lovers_id)
     values (25, 13);
@@ -855,7 +855,7 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 26
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T21:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 13);
+    values ('2022-12-13T21:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 13);
 
 insert into post_lovers (post_id, lovers_id)
     values (26, 8);
@@ -864,9 +864,70 @@ insert into post_lovers (post_id, lovers_id)
 
 -- post id 27
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-05T21:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 13);
+    values ('2022-12-13T21:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 13);
 
 insert into post_lovers (post_id, lovers_id)
     values (27, 8);
 insert into post_lovers (post_id, lovers_id)
     values (27, 9);
+
+-- post id 28
+insert into post (created_at, text_content, author_id)
+    values ('2022-12-14T21:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 2);
+
+insert into post_lovers (post_id, lovers_id)
+    values (28, 1);
+insert into post_lovers (post_id, lovers_id)
+    values (28, 15);
+
+-- post id 29
+insert into post (created_at, text_content, author_id)
+    values ('2022-12-14T21:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 2);
+
+insert into post_lovers (post_id, lovers_id)
+    values (29, 1);
+insert into post_lovers (post_id, lovers_id)
+    values (29, 15);
+
+-- post id 30
+insert into post (created_at, text_content, author_id)
+    values ('2022-12-14T21:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 15);
+
+insert into post_lovers (post_id, lovers_id)
+    values (30, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (30, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (30, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (30, 6);
+
+-- post id 31
+insert into post (created_at, text_content, author_id)
+    values ('2022-12-09T14:00:00.000', 'O hexa não vem mais..', 3);
+
+insert into post_lovers (post_id, lovers_id)
+    values (31, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (31, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (31, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (31, 7);
+insert into post_lovers (post_id, lovers_id)
+    values (31, 15);
+
+-- post id 32
+insert into post (created_at, author_id, reposting_id)
+    values ('2022-12-15T18:50:00.000', 15, 31);
+
+insert into post_lovers (post_id, lovers_id)
+    values (32, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (32, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (32, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (32, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (32, 7);
