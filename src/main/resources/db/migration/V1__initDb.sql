@@ -172,7 +172,7 @@ insert into role values ('ROLE_ADMIN');
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
 	values('admin@tuitr.com', 'tuitr', 'The Tuítr', 'https://avatars.githubusercontent.com/u/50278?s=200&v=4', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('john.doe@gmail.com', 'john-doe', 'John Doe', 'https://lh3.googleusercontent.com/a/AEdFTp7FQ7etNuQigKEiXONfHUPbVuicba_c4EErwaFQ=s88-w88-h88-c-k', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+	values('elon.musk@gmail.com', 'elonmusk', 'Elon Musk', 'https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
 
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
 	values('jeovane.barbosa@zup.com.br', 'jeovanebarbosazup', 'Jeovane Barbosa', 'https://lh3.googleusercontent.com/a-/AD5-WCmzTNM1O5Nvo7NKZK4DmRDYyaNVgnWdZ3U5qVuD=s64-p-k-rw-no', '$2a$10$h4HMatU5Bfr1zyYLBfV7ceZyF.C3r6M6sHYmB5Jf8SJUbCUH8BqYi', '2012-12-12');
@@ -621,7 +621,7 @@ insert into user_following (user_id, following_id)
 
 -- post id 1
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-06T17:34:48.000', 'Hi everyone!', 2);
+    values ('2022-12-06T17:34:48.000', 'Eu que mando aqui!', 2);
 
 insert into post_lovers (post_id, lovers_id)
     values (1, 3);
