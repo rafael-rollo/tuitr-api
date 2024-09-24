@@ -1,12 +1,16 @@
+clean: 
+	@ echo ::::: cleaning project 🔥
+	@ ./mvnw clean
+
 compile:
-	@ echo ::::: compiling project 🔥
+	@ echo ::::: compiling project 🏗️
 	@ ./mvnw compile
 	
 test: compile
 	@ echo ::::: testing project 🧪
 	@ ./mvnw test
 
-package: compile
+package: clean
 	@ echo ::::: packaging project 📦
 	@ ./mvnw package -DskipTests
 	
