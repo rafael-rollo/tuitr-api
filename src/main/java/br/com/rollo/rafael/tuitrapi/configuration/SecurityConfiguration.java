@@ -92,7 +92,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		public void commence(HttpServletRequest request, HttpServletResponse response,
 				AuthenticationException authException) throws IOException, ServletException {
 			
-			logger.error("Um acesso não autorizado foi verificado. Mensagem: {}", 
+			logger.error("Um acesso não autorizado à {} foi verificado. {}",
+					request.getRequestURI(),
                     authException.getMessage());
 
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED, 
