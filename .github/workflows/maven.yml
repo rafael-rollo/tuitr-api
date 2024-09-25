@@ -29,11 +29,13 @@ jobs:
         cache: maven
     - run: chmod +x ./scripts/prepare-release.sh
 
-    - name: Setup Node.js and Install additional semantic release plugins
+    - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-    - run: npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
+
+    - name: Install additional semantic release plugins
+      run: npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
 
     - name: Semantic Release
       uses: cycjimmy/semantic-release-action@v4
