@@ -15,6 +15,8 @@ on:
 jobs:
   release:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
+    environment:
+      name: tuitr-api
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +33,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     - run: npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
 
     - name: Semantic Release
