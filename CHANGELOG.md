@@ -1,5 +1,17 @@
 # Semantic Versioning Changelog
 
+# [1.1.0](https://github.com/rafael-rollo/tuitr-api/compare/v1.0.0...v1.1.0) (2024-09-25)
+
+
+### Bug Fixes
+
+* **ci:** creates a name for installation step ([c46b6a0](https://github.com/rafael-rollo/tuitr-api/commit/c46b6a043c9134b7924bd78610fa00f4df594f19))
+
+
+### Features
+
+* updates readme with instructions to run the release jar file ([921ff73](https://github.com/rafael-rollo/tuitr-api/commit/921ff73e07c1c0e1deb188f166525762c9f6d255))
+
 # 1.0.0 (2024-09-25)
 
 
