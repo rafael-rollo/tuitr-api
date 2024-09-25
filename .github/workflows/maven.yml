@@ -26,12 +26,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Setup Node.js && Install semantic-release plugins
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '16'
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    - name: Install semantic-release plugins
       run: npm install -g semantic-release @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/exec semantic-release/git semantic-release/release-notes-generator
 
     - name: Release
