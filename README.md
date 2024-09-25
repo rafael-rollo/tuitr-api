@@ -4,14 +4,14 @@
 This repository contains the code for a REST API similar to Twitter, referred to as "Tuitr API". The project implements the core functionalities of a social media platform, including user interactions, posting, and fetching data. The API is built using Java, Spring Boot, and Maven, with an ephemeral in-memory data layer powered by the H2 database.
 
 ## Technologies Used
-- **Java 8+**
+- **Java 8**
 - **Maven project**
 - **Spring Framework with Spring Boot 2.4**
 
 ## Prerequisites
 Before running the project, ensure you have the following installed on your machine:
 
-- **JDK 11+**: The API requires at least Java 8 to run. Make sure the Java Development Kit is installed. You can verify the installed Java version and confirm the JDK is in use with the following commands:
+- **JDK 8+**: The API requires at least Java 8 to run. Make sure the Java Development Kit is installed. You can verify the installed Java version and confirm the JDK is in use with the following commands:
   ```bash
   java -version
   javac -version
