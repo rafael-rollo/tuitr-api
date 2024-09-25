@@ -33,7 +33,7 @@ jobs:
         node-version: '20'
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-    - run: npm install -g @semantic-release/git @semantic-release/changelog @semantic-release/exec
+    - run: npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
 
     - name: Semantic Release
       uses: cycjimmy/semantic-release-action@v4
