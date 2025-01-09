@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.1.1](https://github.com/rafael-rollo/tuitr-api/compare/v1.1.0...v1.1.1) (2025-01-09)
+
+
+### Bug Fixes
+
+* **migration:** updates dataset to remove sensitive data ([fdcdae4](https://github.com/rafael-rollo/tuitr-api/commit/fdcdae4802bfe6dac08709c172e39b005a9fef2b))
+
 # [1.1.0](https://github.com/rafael-rollo/tuitr-api/compare/v1.0.0...v1.1.0) (2024-09-25)
 
 
