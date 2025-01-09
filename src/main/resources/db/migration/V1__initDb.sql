@@ -169,39 +169,50 @@ create table acl_entry (
 insert into role values ('ROLE_CLIENT');
 insert into role values ('ROLE_ADMIN');
 
+-- id 1 admin@tuitr.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('admin@tuitr.com', 'tuitr', 'The Tuítr', 'https://avatars.githubusercontent.com/u/50278?s=200&v=4', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+	values('admin@tuitr.com', 'tuitr', 'The Tuítr', 'https://pbs.twimg.com/profile_images/1684205762451476482/kNQlcn5__400x400.jpg', '$2a$10$wYPVw2TT0v5AJO5hdQAGROnZGZFSTjx2yj33xGGaC3etHI0xks8Z.', '2012-12-12');
+-- id 2 elon.musk@gmail.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('elon.musk@gmail.com', 'elonmusk', 'Elon Musk', 'https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg', '$2a$10$3Qrx0rv8qSmZ8s3RlD5qE.upleP7.Qzbg5EoIAm62evEkY4c023TK', '2012-12-12');
+	values('elon.musk@gmail.com', 'musk', 'Elon Musk', 'https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg', '$2a$10$5Q7T4hYApWtMcjKyKSLbJO3vvDTLh.v5U7vpE8wIT3YHyadzkXITO', '2012-12-12');
 
+-- id 3 socrates@philosophers.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('jeovane.barbosa@zup.com.br', 'jeovanebarbosazup', 'Jeovane Barbosa', 'https://lh3.googleusercontent.com/a-/AD5-WCmzTNM1O5Nvo7NKZK4DmRDYyaNVgnWdZ3U5qVuD=s64-p-k-rw-no', '$2a$10$h4HMatU5Bfr1zyYLBfV7ceZyF.C3r6M6sHYmB5Jf8SJUbCUH8BqYi', '2012-12-12');
+	values('socrates@philosophers.com', 'socrates', 'Socrates', 'https://pbs.twimg.com/profile_images/25408162/socrates_big_400x400.jpg', '$2a$10$AKMw289py3.3i4Pv87oseOy9gHTaWAoe76hMTNMz8sZbGPQcEDbyW', '2012-12-12');
+-- id 4 plato@philosophers.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('noelle.figueiredo@zup.com.br', 'noellefigueiredozup', 'Noelle Figueiredo', 'https://lh3.googleusercontent.com/a-/AD5-WClufCHLdM1-IrLEMW-ks3GZXP6f9BWaNvReSxey=s64-p-k-rw-no', '$2a$10$wYpgxRTbLqe9wq2sGvIWBujDzVRlrEgb5PBZxfRBVqsC0RkFe74kW', '2012-12-12');
+	values('plato@philosophers.com', 'plato', 'Plato', 'https://pbs.twimg.com/profile_images/1396912129136005124/mwV6giNY_400x400.jpg', '$2a$10$AGoQbwfIlQxxOPVSw2rYjuG9p3xhty5URz6LoR6eqcv0dCWyPm0sy', '2012-12-12');
+-- id 5 aristotle@philosophers.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('italo.cavalcanti@zup.com.br', 'italocavalcantizup', 'Italo Cavalcanti', 'https://lh3.googleusercontent.com/a-/AD5-WCkOTcAq7_FAWGlkiP3OgQOaPni6gYERS8vIpFyN=s64-p-k-rw-no', '$2a$10$Zh5fTqCmYps/lj2gsZFfkubC.g.s5Eu3kp51luo/b.YPAvujSy0bm', '2012-12-12');
+	values('aristotle@philosophers.com', 'aristotle', 'Aristotle', 'https://pbs.twimg.com/profile_images/1434817847490908162/Kx-0jeWf_400x400.jpg', '$2a$10$0mv840B/d8glkfjLZJaZresGSoE9GfxVOlUceY5PnB739WihbZy8y', '2012-12-12');
+-- id 6 epicurus@philosophers.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('luis.felipe@zup.com.br', 'luisfelipesantoszup', 'Luis Felipe Santos', 'https://lh3.googleusercontent.com/a-/AD5-WCmBxsY_5hTp0OIGZffeAZJCzRdvOhc0n98w28_0=s64-p-k-rw-no', '$2a$10$uhjKCIsqzHJmCGq3zUbyWuHN32JpkFvC2ELfkl2vZZ7Z6LePi/ICe', '2012-12-12');
+	values('epicurus@philosophers.com', 'epicurus', 'Epicurus', 'https://pbs.twimg.com/profile_images/1473357026893996036/12OHJ1QE_400x400.jpg', '$2a$10$2Es6j8X7kC/prKLy8Rr13ebAzQnBCDMppowyktC3UljTBgT8GxTKS', '2012-12-12');
+-- id 7 kant@philosophers.com
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('laura.marson@zup.com.br', 'lauramarsonzup', 'Laura Marson', 'https://lh3.googleusercontent.com/a-/AD5-WCkHnDX5LUScnMEb2esY9ZqK4QiJTU0iceCwgSkO=s64-p-k-rw-no', '$2a$10$W1zofnfIcz3RyBdS7CEZJ.huXVlH1L9bMMkah2d/6pIjCysTvwaaC', '2012-12-12');
+	values('kant@philosophers.com', 'immanuelkant', 'Immanuel Kant', 'https://pbs.twimg.com/profile_images/1434480566120878081/QLI0BLvV_400x400.jpg', '$2a$10$giAbvWY8Q0HcRMQHrY/aOOGLexHwd8KlDvCHA/6yNn25.pyMKvL2G', '2012-12-12');
+-- id 8 descartes@philosophers.com
+insert into user (email, username, full_name, profile_picture_path, password, joined_at)
+	values('descartes@philosophers.com', 'descartes', 'René Descartes', 'https://pbs.twimg.com/profile_images/1569809372250836992/vD7vHjuP_400x400.jpg', '$2a$10$Xqblw3em1SFF3kBmoRDGWOvZObeWwNKWWDuVEUgaId.DXdyT.YgRa', '2012-12-12');
+-- id 9 spinoza@philosophers.com
+insert into user (email, username, full_name, profile_picture_path, password, joined_at)
+	values('spinoza@philosophers.com', 'spinoza', 'Baruch Spinoza', 'https://pbs.twimg.com/profile_images/1574342030775488512/Nx_I0479_400x400.jpg', '$2a$10$KklXUWLnD4h5Lkzv0SWkYeqMMembgn0EtqT1QWR.Dn2FTFTsLP92.', '2012-12-12');
+-- id 10 locke@philosophers.com
+insert into user (email, username, full_name, profile_picture_path, password, joined_at)
+	values('locke@philosophers.com', 'johnlocke', 'John Locke', 'https://pbs.twimg.com/profile_images/1439524112125370369/ROPqiXFO_400x400.jpg', '$2a$10$WaJy.5Nhw8a7EfvmrV5xr.qotJjHng8J0u2Tcq8p0uFQk.3OyvXAa', '2012-12-12');
+-- id 11 hume@philosophers.com
+insert into user (email, username, full_name, profile_picture_path, password, joined_at)
+	values('hume@philosophers.com', 'davidhume', 'David Hume', 'https://pbs.twimg.com/profile_images/1501944604878245897/VHVcDr83_400x400.jpg', '$2a$10$xaJafV82jX56Eg64.vTc6O7aPY9dY32TwliMLdHNjcWou6tKfWwPO', '2012-12-12');
+-- id 12 hegel@philosophers.com
+insert into user (email, username, full_name, profile_picture_path, password, joined_at)
+	values('hegel@philosophers.com', 'hegel', 'Georg Wilhelm Friedrich Hegel', 'https://pbs.twimg.com/profile_images/968846865092427777/jd2jtyUj_400x400.jpg', '$2a$10$A6ixRUd14SeQCBOJHwgX9eVsRY82fl9gQq2XGRvcccAor.cD5pQM.', '2012-12-12');
+-- id 13 nietzsche@philosophers.com
+insert into user (email, username, full_name, profile_picture_path, password, joined_at)
+	values('nietzsche@philosophers.com', 'nietzsche', 'Friedrich Nietzsche', 'https://pbs.twimg.com/profile_images/1393880827302498308/122KOFlD_400x400.jpg', '$2a$10$Nsf/SPxxlB0FUS.ngLVuiejuzkEFhA.pozwTH8aNrSU2kdw/iJSyC', '2012-12-12');
 
+-- id 14 rafael.rollo@zup.com.br
 insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('debora.souza@zup.com.br', 'deborasouzazup', 'Debora Souza', 'https://lh3.googleusercontent.com/a-/AD5-WCmiFrhQHdCodxNFOxrUitv1xpe_qAFqm4cMaaYG=s64-p-k-rw-no', '$2a$10$gtbEWz3tpp2PKnP1yf0KjOjIHubMU8iPUD3BCkF4MO5pKIfJ5mwUi', '2012-12-12');
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('luan.gomes@zup.com.br', 'luanlimazup', 'Luan Gomes Lima', 'https://lh3.googleusercontent.com/a-/AD5-WCkOqo-M9b3OuRfQwDXaFwLFz8yOQ8EYiSDGniES=s64-p-k-rw-no', '$2a$10$ROoB6ULPPPFrHUaT1KhVpeLCb5JqkxYHHJ2DRR68MvqIrFjV4vzKu', '2012-12-12');
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('nilo.martins@zup.com.br', 'nilomartinszup', 'Nilo Martins', 'https://lh3.googleusercontent.com/a-/AD5-WClX0qgJhw_-njDoIrpXQ8WuBIsPtCB-AVsdaNaJuQ=s64-p-k-rw-no', '$2a$10$puqJBJ7OcaCprit7MXzdC.cydnnbb60sXsngO05QzALwB.I2u2CRS', '2012-12-12');
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('raline.silva@zup.com.br', 'ralinesilvazup', 'Raline Silva', 'https://lh3.googleusercontent.com/a-/AD5-WCmgmcAF_lemYF1ItIU2ipjFj3RqxzEcFJP1v65m=s88-w88-h88-c-k', '$2a$10$D0KVMYEx1LFgojyN.bzNJumQ9PjTdn1ZpJnXw/cbh7fxuftDXO.mu', '2012-12-12');
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('stella.medeiros@zup.com.br', 'stellamedeiroszup', 'Stella Medeiros', 'https://lh3.googleusercontent.com/a/AEdFTp49yInXI7WJGabnD2B4llwZrnFlbdnYs_pWJIIC=s88-w88-h88-c-k', '$2a$10$pwJ7EQYtWhCWWbSfTblTfeohpjyiF/FqId5CK4hT/pjwdzxcVMxAK', '2012-12-12');
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('thiago.pereira@zup.com.br', 'thiagopereirazup', 'Thiago Pereira', 'https://lh3.googleusercontent.com/a-/AD5-WCmkl_Cb3XCrIp4Kjv4Ckl3pIp1qO9vG5eF3yKkM=s64-p-k-rw-no', '$2a$10$k6wk0ESGdJepV5EhMfApcOL6T7o6Elg9h1XLhW9ojsUN/qKKx8llO', '2012-12-12');
-
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('rafael.rollo@zup.com.br', 'rafaelrollozup', 'Rafael Rollo', 'https://lh3.googleusercontent.com/a/AEdFTp6icOhoLwUSiZW8xA3UBSd7K7a5uOk5xSECTuvbcQ=s64-p-k-rw-no', '$2a$10$ZoctEqHEkxPYhNj/wFhWo.Q9LSTLkBwOhw5nht/dLpYide5ciY9Eu', '2012-12-12');
-insert into user (email, username, full_name, profile_picture_path, password, joined_at)
-	values('matheus.almeida@zup.com.br', 'matheushenriquezup', 'Matheus Henrique Santos', 'https://lh3.googleusercontent.com/a-/AD5-WCkrsss7ozq32EAjiugkUJd5x1CuAy1Ox3eC8Ug9=s64-p-k-rw-no', '$2a$10$xDLu0IvJwtaw//ZXyyQiReHr/fBo2UfSIPcYqnBg/W8vFsabB2Chu', '2012-12-12');
+	values('rafaelrollo92@gmail.com', 'rollo', 'Rafael Rollo', 'https://pbs.twimg.com/profile_images/1877284963948593152/NOz_4n61_400x400.jpg', '$2a$10$XYvY6u5YPct7aqNGc3q3iuPnXvthuV4Nsebp1AimlFwytxorvUutS', '2012-12-12');
 
 insert into user_authorities (user_id, authorities_authority)
 	values(1,'ROLE_ADMIN');
@@ -217,26 +228,22 @@ insert into user_authorities (user_id, authorities_authority)
     values(6,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
     values(7,'ROLE_CLIENT');
-
 insert into user_authorities (user_id, authorities_authority)
-    values(8,'ROLE_CLIENT'); -- debora
+    values(8,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
-    values(9,'ROLE_CLIENT'); -- luan
+    values(9,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
-    values(10,'ROLE_CLIENT'); -- nilo
+    values(10,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
-    values(11,'ROLE_CLIENT'); -- raline
+    values(11,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
-    values(12,'ROLE_CLIENT'); -- stella
+    values(12,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
-    values(13,'ROLE_CLIENT'); -- thiago
-
+    values(13,'ROLE_CLIENT');
 insert into user_authorities (user_id, authorities_authority)
     values(14,'ROLE_CLIENT'); -- rollo
-insert into user_authorities (user_id, authorities_authority)
-    values(15,'ROLE_CLIENT'); -- matheus
 
--- all follow admin --------------------------------------------
+-- all users follow admin --------------------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(1, 2);
@@ -303,133 +310,7 @@ insert into user_followers (user_id, followers_id)
 insert into user_following (user_id, following_id)
     values(14, 1);
 
-insert into user_followers (user_id, followers_id)
-    values(1, 15);
-insert into user_following (user_id, following_id)
-    values(15, 1);
-
--- all students follow rollo --------------------------------------------
-
-insert into user_followers (user_id, followers_id)
-    values(14, 3);
-insert into user_following (user_id, following_id)
-    values(3, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 4);
-insert into user_following (user_id, following_id)
-    values(4, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 5);
-insert into user_following (user_id, following_id)
-    values(5, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 6);
-insert into user_following (user_id, following_id)
-    values(6, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 7);
-insert into user_following (user_id, following_id)
-    values(7, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 8);
-insert into user_following (user_id, following_id)
-    values(8, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 9);
-insert into user_following (user_id, following_id)
-    values(9, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 10);
-insert into user_following (user_id, following_id)
-    values(10, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 11);
-insert into user_following (user_id, following_id)
-    values(11, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 12);
-insert into user_following (user_id, following_id)
-    values(12, 14);
-
-insert into user_followers (user_id, followers_id)
-    values(14, 13);
-insert into user_following (user_id, following_id)
-    values(13, 14);
-
--- all students follow matheus --------------------------------------------
-
-insert into user_followers (user_id, followers_id)
-    values(15, 3);
-insert into user_following (user_id, following_id)
-    values(3, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 4);
-insert into user_following (user_id, following_id)
-    values(4, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 5);
-insert into user_following (user_id, following_id)
-    values(5, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 6);
-insert into user_following (user_id, following_id)
-    values(6, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 7);
-insert into user_following (user_id, following_id)
-    values(7, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 8);
-insert into user_following (user_id, following_id)
-    values(8, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 9);
-insert into user_following (user_id, following_id)
-    values(9, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 10);
-insert into user_following (user_id, following_id)
-    values(10, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 11);
-insert into user_following (user_id, following_id)
-    values(11, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 12);
-insert into user_following (user_id, following_id)
-    values(12, 15);
-
-insert into user_followers (user_id, followers_id)
-    values(15, 13);
-insert into user_following (user_id, following_id)
-    values(13, 15);
-
--- rollo follows john doe ----------------------------------------------
-
-insert into user_followers (user_id, followers_id)
-    values(2, 14);
-insert into user_following (user_id, following_id)
-    values(14, 2);
-
--- noelle, italo and pipe follow jeovane -------------------------------
+-- some relationships between users
 
 insert into user_followers (user_id, followers_id)
     values(3, 4);
@@ -445,8 +326,6 @@ insert into user_following (user_id, following_id)
 insert into user_following (user_id, following_id)
     values(6, 3);
 
--- italo, pipe and laura follow noelle -------------------------------
-
 insert into user_followers (user_id, followers_id)
     values(4, 5);
 insert into user_followers (user_id, followers_id)
@@ -460,8 +339,6 @@ insert into user_following (user_id, following_id)
     values(6, 4);
 insert into user_following (user_id, following_id)
     values(7, 4);
-
--- pipe, laura and jeovane follow italo -------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(5, 6);
@@ -477,8 +354,6 @@ insert into user_following (user_id, following_id)
 insert into user_following (user_id, following_id)
     values(3, 5);
 
--- laura, jeovane and noelle follow pipe -------------------------------
-
 insert into user_followers (user_id, followers_id)
     values(6, 7);
 insert into user_followers (user_id, followers_id)
@@ -492,8 +367,6 @@ insert into user_following (user_id, following_id)
     values(3, 6);
 insert into user_following (user_id, following_id)
     values(4, 6);
-
--- jeovane, noelle and italo follow laura -------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(7, 3);
@@ -509,8 +382,6 @@ insert into user_following (user_id, following_id)
 insert into user_following (user_id, following_id)
     values(5, 7);
 
--- luan, nilo and raline follow debora -------------------------------
-
 insert into user_followers (user_id, followers_id)
     values(8, 9);
 insert into user_followers (user_id, followers_id)
@@ -524,8 +395,6 @@ insert into user_following (user_id, following_id)
     values(10, 8);
 insert into user_following (user_id, following_id)
     values(11, 8);
-
--- nilo, raline and stella follow luan -------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(9, 10);
@@ -541,8 +410,6 @@ insert into user_following (user_id, following_id)
 insert into user_following (user_id, following_id)
     values(12, 9);
 
--- raline, stella and thiago follow nilo -------------------------------
-
 insert into user_followers (user_id, followers_id)
     values(10, 11);
 insert into user_followers (user_id, followers_id)
@@ -556,8 +423,6 @@ insert into user_following (user_id, following_id)
     values(12, 10);
 insert into user_following (user_id, following_id)
     values(13, 10);
-
--- stella, thiago and debora follow raline -------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(11, 12);
@@ -573,8 +438,6 @@ insert into user_following (user_id, following_id)
 insert into user_following (user_id, following_id)
     values(8, 11);
 
--- thiago, debora and luan follow stella -------------------------------
-
 insert into user_followers (user_id, followers_id)
     values(12, 13);
 insert into user_followers (user_id, followers_id)
@@ -588,8 +451,6 @@ insert into user_following (user_id, following_id)
     values(8, 12);
 insert into user_following (user_id, following_id)
     values(9, 12);
-
--- debora, luan and nilo follow thiago -------------------------------
 
 insert into user_followers (user_id, followers_id)
     values(13, 8);
@@ -605,50 +466,116 @@ insert into user_following (user_id, following_id)
 insert into user_following (user_id, following_id)
     values(10, 13);
 
--- rollo and matheus follow each other -------------------------------
+-- rollo follows everyone -----------------------------------
 
 insert into user_followers (user_id, followers_id)
-    values(14, 15);
+    values(2, 14);
 insert into user_following (user_id, following_id)
-    values(15, 14);
+    values(14, 2);
 
 insert into user_followers (user_id, followers_id)
-    values(15, 14);
+    values(3, 14);
 insert into user_following (user_id, following_id)
-    values(14, 15);
+    values(14, 3);
+
+insert into user_followers (user_id, followers_id)
+    values(4, 14);
+insert into user_following (user_id, following_id)
+    values(14, 4);
+
+insert into user_followers (user_id, followers_id)
+    values(5, 14);
+insert into user_following (user_id, following_id)
+    values(14, 5);
+
+insert into user_followers (user_id, followers_id)
+    values(6, 14);
+insert into user_following (user_id, following_id)
+    values(14, 6);
+
+insert into user_followers (user_id, followers_id)
+    values(7, 14);
+insert into user_following (user_id, following_id)
+    values(14, 7);
+
+insert into user_followers (user_id, followers_id)
+    values(8, 14);
+insert into user_following (user_id, following_id)
+    values(14, 8);
+
+insert into user_followers (user_id, followers_id)
+    values(9, 14);
+insert into user_following (user_id, following_id)
+    values(14, 9);
+
+insert into user_followers (user_id, followers_id)
+    values(10, 14);
+insert into user_following (user_id, following_id)
+    values(14, 10);
+
+insert into user_followers (user_id, followers_id)
+    values(11, 14);
+insert into user_following (user_id, following_id)
+    values(14, 11);
+
+insert into user_followers (user_id, followers_id)
+    values(12, 14);
+insert into user_following (user_id, following_id)
+    values(14, 12);
+
+insert into user_followers (user_id, followers_id)
+    values(13, 14);
+insert into user_following (user_id, following_id)
+    values(14, 13);
 
 ---- posts data ---------------------------------------------------------
 
 -- post id 1
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-06T17:34:48.000', 'Eu que mando aqui!', 2);
+    values ('2022-12-06T17:34:48.000', 'Welcome to the Tuítr', 1);
 
+insert into post_lovers (post_id, lovers_id)
+    values (1, 2);
 insert into post_lovers (post_id, lovers_id)
     values (1, 3);
 insert into post_lovers (post_id, lovers_id)
     values (1, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 7);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 8);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 9);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 10);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 11);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 12);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 13);
+insert into post_lovers (post_id, lovers_id)
+    values (1, 14);
 
 -- post id 2
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2022-12-07T17:35:49.000', 'Welcome to the Tuítr', 1, 1);
+    values ('2022-12-07T17:35:49.000', 'Vou te comprei!', 2, 1);
 
-insert into post_lovers (post_id, lovers_id)
-    values (2, 2);
 insert into post_lovers (post_id, lovers_id)
     values (2, 3);
 insert into post_lovers (post_id, lovers_id)
     values (2, 4);
-insert into post_lovers (post_id, lovers_id)
-    values (2, 5);
-insert into post_lovers (post_id, lovers_id)
-    values (2, 6);
-insert into post_lovers (post_id, lovers_id)
-    values (2, 7);
 
 -- post id 3
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-07T17:36:50.000', 'O hexa ainda vem!', 3);
+    values ('2025-01-05T09:00:00', 'The unexamined life is not worth living.', 3);
 
+insert into post_lovers (post_id, lovers_id)
+    values (3, 3);
 insert into post_lovers (post_id, lovers_id)
     values (3, 4);
 insert into post_lovers (post_id, lovers_id)
@@ -656,285 +583,194 @@ insert into post_lovers (post_id, lovers_id)
 insert into post_lovers (post_id, lovers_id)
     values (3, 6);
 insert into post_lovers (post_id, lovers_id)
-    values (3, 7);
+    values (3, 8);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 9);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 11);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 12);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 13);
+insert into post_lovers (post_id, lovers_id)
+    values (3, 14);
 
--- post id 4
-insert into post (created_at, author_id, reposting_id)
-    values ('2022-12-07T17:38:52.000', 4, 3);
-
-insert into post_lovers (post_id, lovers_id)
-    values (4, 3);
-insert into post_lovers (post_id, lovers_id)
-    values (4, 5);
-insert into post_lovers (post_id, lovers_id)
-    values (4, 6);
-insert into post_lovers (post_id, lovers_id)
-    values (4, 7);
-
--- post id 5
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-08T17:34:48.000', 'Hi everyone!', 3);
+-- post id 4 replying to 3
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:01:00', 'My teacher once told me that wisdom comes from knowing that you know nothing. I''ve dedicated my life to building a society on that principle.', 4, 3);
 
 insert into post_lovers (post_id, lovers_id)
-    values (5, 4);
+    values (4, 4);
 insert into post_lovers (post_id, lovers_id)
-    values (5, 5);
-
--- post id 6
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-08T18:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 3);
-
+    values (4, 8);
 insert into post_lovers (post_id, lovers_id)
-    values (6, 4);
+    values (4, 9);
 insert into post_lovers (post_id, lovers_id)
-    values (6, 5);
+    values (4, 13);
+insert into post_lovers (post_id, lovers_id)
+    values (4, 14);
 
--- post id 7
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-08T18:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 3);
+-- post id 5 replying to 4
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:02:00', '@plato, while noble, your ideal society is impractical. Virtue lies in moderation and in observing the natural world to understand human behavior.', 5, 4);
 
 insert into post_lovers (post_id, lovers_id)
-    values (7, 4);
+    values (5, 6);
 insert into post_lovers (post_id, lovers_id)
-    values (7, 5);
+    values (5, 9);
+insert into post_lovers (post_id, lovers_id)
+    values (5, 11);
+insert into post_lovers (post_id, lovers_id)
+    values (5, 12);
+
+-- post id 6 reposting id 5
+insert into post (created_at, text_content, author_id, reposting_id)
+    values ('2025-01-05T09:03:00', 'I must disagree. The pursuit of pleasure is the path to a good life, but it''s about simple pleasures and avoiding pain, not indulgence.', 6, 5);
+
+insert into post_lovers (post_id, lovers_id)
+    values (6, 7);
+insert into post_lovers (post_id, lovers_id)
+    values (6, 9);
+insert into post_lovers (post_id, lovers_id)
+    values (6, 10);
+insert into post_lovers (post_id, lovers_id)
+    values (6, 13);
+
+-- post id 7 replying to 6
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:04:00', '@epicurus, I find your views lacking a moral framework. The only true moral law is the categorical imperative: Act only according to that maxim whereby you can, at the same time, will that it should become a universal law.', 7, 6);
+
+insert into post_lovers (post_id, lovers_id)
+    values (7, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (7, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (7, 10);
+insert into post_lovers (post_id, lovers_id)
+    values (7, 12);
+insert into post_lovers (post_id, lovers_id)
+    values (7, 14);
 
 -- post id 8
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-09T18:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 4);
+    values ('2025-01-05T09:15:00', 'All of your arguments are rooted in assumptions. I begin with doubt. "Cogito, ergo sum" — I think, therefore I am.', 8);
 
+insert into post_lovers (post_id, lovers_id)
+    values (8, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 4);
 insert into post_lovers (post_id, lovers_id)
     values (8, 5);
 insert into post_lovers (post_id, lovers_id)
     values (8, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 8);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 9);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 11);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 12);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 13);
+insert into post_lovers (post_id, lovers_id)
+    values (8, 14);
 
--- post id 9
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-09T19:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 4);
+-- post id 9 replying to 8
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:16:00', '@descartes, your dualism is problematic. The mind and body are one and the same substance. God is not a separate entity but is in everything.', 9, 8);
 
 insert into post_lovers (post_id, lovers_id)
-    values (9, 5);
+    values (9, 10);
+
+-- post id 10 replying to 9
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:17:00', '@spinoza, interesting take. But I would argue that knowledge is acquired through experience. We are born as a blank slate — "tabula rasa."', 10, 9);
+
 insert into post_lovers (post_id, lovers_id)
-    values (9, 6);
-
--- post id 10
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-09T19:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 5);
-
+    values (10, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (10, 5);
 insert into post_lovers (post_id, lovers_id)
     values (10, 6);
 insert into post_lovers (post_id, lovers_id)
     values (10, 7);
+insert into post_lovers (post_id, lovers_id)
+    values (10, 11);
 
--- post id 11
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-09T19:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 5);
+-- post id 11 replying to 10
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:18:00', '@locke, experience alone is not enough. We must also understand that human reason is fallible. Most of what we know is derived from habit, not logical deduction.', 11, 10);
 
+insert into post_lovers (post_id, lovers_id)
+    values (11, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (11, 5);
 insert into post_lovers (post_id, lovers_id)
     values (11, 6);
 insert into post_lovers (post_id, lovers_id)
-    values (11, 7);
+    values (11, 12);
 
 -- post id 12
 insert into post (created_at, text_content, author_id)
-    values ('2022-12-09T19:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 6);
+    values ('2025-01-05T09:20:00', 'History is a dialectical process — a constant evolution through thesis, antithesis, and synthesis.', 12);
 
+insert into post_lovers (post_id, lovers_id)
+    values (12, 3);
 insert into post_lovers (post_id, lovers_id)
     values (12, 7);
 insert into post_lovers (post_id, lovers_id)
-    values (12, 3);
+    values (12, 8);
+insert into post_lovers (post_id, lovers_id)
+    values (12, 13);
 
--- post id 13
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-10T19:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 6);
+-- post id 13 replying to 12
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:21:00', '@hegel, the dialectic leads to mediocrity. What humanity needs is a "Übermensch" — someone who creates their own values, beyond good and evil.', 13, 12);
 
 insert into post_lovers (post_id, lovers_id)
-    values (13, 7);
+    values (13, 4);
 insert into post_lovers (post_id, lovers_id)
-    values (13, 3);
+    values (13, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (13, 10);
+insert into post_lovers (post_id, lovers_id)
+    values (13, 12);
 
--- post id 14
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-10T19:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 7);
+-- post id 14 replying to 13
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:22:00', '@nietzsche, fascinating thread! But isn''t there value in combining perspectives? Perhaps through debate, we can achieve a deeper understanding of existence.', 14, 13);
 
 insert into post_lovers (post_id, lovers_id)
     values (14, 3);
 insert into post_lovers (post_id, lovers_id)
-    values (14, 4);
-
--- post id 15
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-10T19:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 7);
-
+    values (14, 8);
 insert into post_lovers (post_id, lovers_id)
-    values (15, 3);
+    values (14, 13);
+
+-- post id 15 replying to 14
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:23:00', '@rollo_rafael, indeed, young man. Dialogue is the essence of philosophical inquiry. Let us continue the pursuit of truth.', 3, 14);
+
 insert into post_lovers (post_id, lovers_id)
     values (15, 4);
-
--- post id 16
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-10T19:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 8);
-
 insert into post_lovers (post_id, lovers_id)
-    values (16, 9);
+    values (15, 5);
 insert into post_lovers (post_id, lovers_id)
-    values (16, 10);
-
--- post id 17
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-11T20:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 8);
-
+    values (15, 6);
 insert into post_lovers (post_id, lovers_id)
-    values (17, 9);
+    values (15, 7);
 insert into post_lovers (post_id, lovers_id)
-    values (17, 10);
-
--- post id 18
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-11T20:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 9);
-
+    values (15, 8);
 insert into post_lovers (post_id, lovers_id)
-    values (18, 10);
+    values (15, 9);
 insert into post_lovers (post_id, lovers_id)
-    values (18, 11);
-
--- post id 19
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-11T20:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 9);
-
+    values (15, 10);
 insert into post_lovers (post_id, lovers_id)
-    values (19, 10);
+    values (15, 11);
 insert into post_lovers (post_id, lovers_id)
-    values (19, 11);
-
--- post id 20
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-11T20:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 10);
-
+    values (15, 12);
 insert into post_lovers (post_id, lovers_id)
-    values (20, 11);
+    values (15, 13);
 insert into post_lovers (post_id, lovers_id)
-    values (20, 12);
-
--- post id 21
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-12T20:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 10);
-
-insert into post_lovers (post_id, lovers_id)
-    values (21, 11);
-insert into post_lovers (post_id, lovers_id)
-    values (21, 12);
-
--- post id 22
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-12T20:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 11);
-
-insert into post_lovers (post_id, lovers_id)
-    values (22, 12);
-insert into post_lovers (post_id, lovers_id)
-    values (22, 13);
-
--- post id 23
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-12T20:50:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 11);
-
-insert into post_lovers (post_id, lovers_id)
-    values (23, 12);
-insert into post_lovers (post_id, lovers_id)
-    values (23, 13);
-
--- post id 24
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-13T20:45:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 12);
-
-insert into post_lovers (post_id, lovers_id)
-    values (24, 13);
-insert into post_lovers (post_id, lovers_id)
-    values (24, 8);
-
--- post id 25
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-13T21:05:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 12);
-
-insert into post_lovers (post_id, lovers_id)
-    values (25, 13);
-insert into post_lovers (post_id, lovers_id)
-    values (25, 8);
-
--- post id 26
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-13T21:00:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 13);
-
-insert into post_lovers (post_id, lovers_id)
-    values (26, 8);
-insert into post_lovers (post_id, lovers_id)
-    values (26, 9);
-
--- post id 27
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-13T21:20:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 13);
-
-insert into post_lovers (post_id, lovers_id)
-    values (27, 8);
-insert into post_lovers (post_id, lovers_id)
-    values (27, 9);
-
--- post id 28
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-14T21:15:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 2);
-
-insert into post_lovers (post_id, lovers_id)
-    values (28, 1);
-insert into post_lovers (post_id, lovers_id)
-    values (28, 15);
-
--- post id 29
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-14T21:35:00.000', 'Nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi.', 2);
-
-insert into post_lovers (post_id, lovers_id)
-    values (29, 1);
-insert into post_lovers (post_id, lovers_id)
-    values (29, 15);
-
--- post id 30
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-14T21:30:00.000', 'Vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra.', 15);
-
-insert into post_lovers (post_id, lovers_id)
-    values (30, 3);
-insert into post_lovers (post_id, lovers_id)
-    values (30, 4);
-insert into post_lovers (post_id, lovers_id)
-    values (30, 5);
-insert into post_lovers (post_id, lovers_id)
-    values (30, 6);
-
--- post id 31
-insert into post (created_at, text_content, author_id)
-    values ('2022-12-09T14:00:00.000', 'O hexa não vem mais..', 3);
-
-insert into post_lovers (post_id, lovers_id)
-    values (31, 4);
-insert into post_lovers (post_id, lovers_id)
-    values (31, 5);
-insert into post_lovers (post_id, lovers_id)
-    values (31, 6);
-insert into post_lovers (post_id, lovers_id)
-    values (31, 7);
-insert into post_lovers (post_id, lovers_id)
-    values (31, 15);
-
--- post id 32
-insert into post (created_at, author_id, reposting_id)
-    values ('2022-12-15T18:50:00.000', 15, 31);
-
-insert into post_lovers (post_id, lovers_id)
-    values (32, 3);
-insert into post_lovers (post_id, lovers_id)
-    values (32, 4);
-insert into post_lovers (post_id, lovers_id)
-    values (32, 5);
-insert into post_lovers (post_id, lovers_id)
-    values (32, 6);
-insert into post_lovers (post_id, lovers_id)
-    values (32, 7);
+    values (15, 14);
