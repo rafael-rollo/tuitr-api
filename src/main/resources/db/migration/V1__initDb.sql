@@ -596,8 +596,8 @@ insert into post_lovers (post_id, lovers_id)
     values (3, 14);
 
 -- post id 4 replying to 3
-insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2025-01-05T09:01:00', 'My teacher once told me that wisdom comes from knowing that you know nothing. I''ve dedicated my life to building a society on that principle.', 4, 3);
+insert into post (created_at, text_content, author_id)
+    values ('2025-01-05T09:01:00', 'My teacher @socrates once told me that wisdom comes from knowing that you know nothing. I''ve dedicated my life to building a society on that principle.', 4);
 
 insert into post_lovers (post_id, lovers_id)
     values (4, 4);
@@ -623,9 +623,9 @@ insert into post_lovers (post_id, lovers_id)
 insert into post_lovers (post_id, lovers_id)
     values (5, 12);
 
--- post id 6 reposting id 5
-insert into post (created_at, text_content, author_id, reposting_id)
-    values ('2025-01-05T09:03:00', 'I must disagree. The pursuit of pleasure is the path to a good life, but it''s about simple pleasures and avoiding pain, not indulgence.', 6, 5);
+-- post id 6 reposting id 4
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:03:00', 'I must disagree. The pursuit of pleasure is the path to a good life, but it''s about simple pleasures and avoiding pain, not indulgence.', 6, 4);
 
 insert into post_lovers (post_id, lovers_id)
     values (6, 7);
@@ -636,9 +636,9 @@ insert into post_lovers (post_id, lovers_id)
 insert into post_lovers (post_id, lovers_id)
     values (6, 13);
 
--- post id 7 replying to 6
+-- post id 7 replying to 4
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2025-01-05T09:04:00', '@epicurus, I find your views lacking a moral framework. The only true moral law is the categorical imperative: Act only according to that maxim whereby you can, at the same time, will that it should become a universal law.', 7, 6);
+    values ('2025-01-05T09:04:00', '@epicurus, I find your views lacking a moral framework. The only true moral law is the categorical imperative: Act only according to that maxim whereby you can, at the same time, will that it should become a universal law.', 7, 4);
 
 insert into post_lovers (post_id, lovers_id)
     values (7, 3);
@@ -683,9 +683,9 @@ insert into post (created_at, text_content, author_id, replying_to_id)
 insert into post_lovers (post_id, lovers_id)
     values (9, 10);
 
--- post id 10 replying to 9
+-- post id 10 replying to 8
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2025-01-05T09:17:00', '@spinoza, interesting take. But I would argue that knowledge is acquired through experience. We are born as a blank slate — "tabula rasa."', 10, 9);
+    values ('2025-01-05T09:17:00', '@spinoza, interesting take. But I would argue that knowledge is acquired through experience. We are born as a blank slate — "tabula rasa."', 10, 8);
 
 insert into post_lovers (post_id, lovers_id)
     values (10, 4);
@@ -698,9 +698,9 @@ insert into post_lovers (post_id, lovers_id)
 insert into post_lovers (post_id, lovers_id)
     values (10, 11);
 
--- post id 11 replying to 10
+-- post id 11 replying to 8
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2025-01-05T09:18:00', '@locke, experience alone is not enough. We must also understand that human reason is fallible. Most of what we know is derived from habit, not logical deduction.', 11, 10);
+    values ('2025-01-05T09:18:00', '@locke, experience alone is not enough. We must also understand that human reason is fallible. Most of what we know is derived from habit, not logical deduction.', 11, 8);
 
 insert into post_lovers (post_id, lovers_id)
     values (11, 4);
@@ -737,9 +737,9 @@ insert into post_lovers (post_id, lovers_id)
 insert into post_lovers (post_id, lovers_id)
     values (13, 12);
 
--- post id 14 replying to 13
+-- post id 14 replying to 12
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2025-01-05T09:22:00', '@nietzsche, fascinating thread! But isn''t there value in combining perspectives? Perhaps through debate, we can achieve a deeper understanding of existence.', 14, 13);
+    values ('2025-01-05T09:22:00', '@nietzsche, fascinating thread! But isn''t there value in combining perspectives? Perhaps through debate, we can achieve a deeper understanding of existence.', 14, 12);
 
 insert into post_lovers (post_id, lovers_id)
     values (14, 3);
@@ -748,9 +748,9 @@ insert into post_lovers (post_id, lovers_id)
 insert into post_lovers (post_id, lovers_id)
     values (14, 13);
 
--- post id 15 replying to 14
+-- post id 15 replying to 12
 insert into post (created_at, text_content, author_id, replying_to_id)
-    values ('2025-01-05T09:23:00', '@rollo_rafael, indeed, young man. Dialogue is the essence of philosophical inquiry. Let us continue the pursuit of truth.', 3, 14);
+    values ('2025-01-05T09:23:00', '@rollo_rafael, indeed, young man. Dialogue is the essence of philosophical inquiry. Let us continue the pursuit of truth.', 3, 12);
 
 insert into post_lovers (post_id, lovers_id)
     values (15, 4);
@@ -774,3 +774,107 @@ insert into post_lovers (post_id, lovers_id)
     values (15, 13);
 insert into post_lovers (post_id, lovers_id)
     values (15, 14);
+
+-- post id 16 reposting to 3
+insert into post (created_at, author_id, reposting_id)
+    values ('2025-01-05T09:30:00', 14, 3);
+
+insert into post_lovers (post_id, lovers_id)
+    values (16, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (16, 5);
+insert into post_lovers (post_id, lovers_id)
+    values (16, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (16, 12);
+
+-- post id 17
+insert into post (created_at, text_content, author_id)
+    values ('2025-01-05T09:40:00', 'Government exists to protect our natural rights: life, liberty, and property. Without it, society would fall into chaos.', 10);
+
+insert into post_lovers (post_id, lovers_id)
+    values (17, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (17, 6);
+insert into post_lovers (post_id, lovers_id)
+    values (17, 8);
+insert into post_lovers (post_id, lovers_id)
+    values (17, 13);
+
+-- post id 18
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-05T09:41:00', '@locke, I question your reliance on the concept of natural rights. Human behavior is guided more by sentiment and custom than by abstract principles.', 11, 17);
+
+-- post id 19
+insert into post (created_at, text_content, author_id, reposting_id)
+    values ('2025-01-05T09:42:00', 'The foundation of moral law cannot be derived from empirical observation. Instead, it must come from rational duty.', 7, 17);
+
+insert into post_lovers (post_id, lovers_id)
+    values (19, 4);
+insert into post_lovers (post_id, lovers_id)
+    values (19, 8);
+insert into post_lovers (post_id, lovers_id)
+    values (19, 10);
+insert into post_lovers (post_id, lovers_id)
+    values (19, 13);
+
+-- post id 20
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-06T09:43:00', '@kant, I agree that reason is fundamental. However, we must first doubt everything to establish any certainty.', 8, 19);
+
+-- post id 21
+insert into post (created_at, text_content, author_id)
+    values ('2025-01-06T09:44:00', 'Ethics must be derived from understanding the natural order of the universe. We are all part of a single, infinite substance.', 9);
+
+-- post id 22
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-07T09:45:00', '@spinoza, that may be so, but ethics is also practical. Virtue is a habit formed by deliberate choice and balance.', 5, 21);
+
+-- post id 23
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-07T09:46:00', '@aristotle, virtue is a relic of the past. We must transcend traditional values to create our own path.', 13, 21);
+
+-- post id 24
+insert into post (created_at, text_content, author_id)
+    values ('2025-01-08T09:50:00', 'We cannot trust our senses to reveal the true nature of reality. I begin with doubt because it is the only way to find certainty.', 8);
+
+insert into post_lovers (post_id, lovers_id)
+    values (24, 9);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 7);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 10);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 11);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 12);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 13);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 3);
+insert into post_lovers (post_id, lovers_id)
+    values (24, 4);
+
+-- post id 25
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-08T09:55:00', '@descartes Doubting everything leads to confusion. The universe operates according to natural laws, and understanding those laws leads to clarity.', 9, 24);
+
+-- post id 26
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-08T10:00:00', 'We cannot perceive things as they are in themselves. Our mind imposes structure on the world, and we experience phenomena, not noumena.', 7, 24);
+
+-- post id 27
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-09T10:05:00', '@kant, I must disagree. Our knowledge comes from experience. We begin with a blank slate, and through sensory input, we gain understanding.', 10, 24);
+
+-- post id 28
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-09T10:10:00', '@locke, sensory experience alone is unreliable. Much of our understanding is based on patterns and habits we observe, not on absolute truths.', 11, 24);
+
+-- post id 29
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-10T10:15:00', 'Reality is shaped by history and the unfolding of ideas. Truth emerges through the dialectical process over time.', 12, 24);
+
+-- post id 30
+insert into post (created_at, text_content, author_id, replying_to_id)
+    values ('2025-01-10T10:20:00', '@hegel, your belief in historical progression is naive. Reality is chaotic, and meaning is something we must create ourselves.', 13, 24);
