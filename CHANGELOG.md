@@ -1,5 +1,14 @@
 # Semantic Versioning Changelog
 
+## [1.1.2](https://github.com/rafael-rollo/tuitr-api/compare/v1.1.1...v1.1.2) (2025-01-10)
+
+
+### Bug Fixes
+
+* **data:** updates dataset to include more values ([623d589](https://github.com/rafael-rollo/tuitr-api/commit/623d589aa17bb9aa61f5f7a2814c0cb6a69fd0c3))
+* **postrepository:** updates jpql queries to fix bug loading the feed ([ba2a403](https://github.com/rafael-rollo/tuitr-api/commit/ba2a403beabb49b75f0ec417f60b426324147fee))
+* removes unused mock file ([3acc4bc](https://github.com/rafael-rollo/tuitr-api/commit/3acc4bc62cd1696d08868b5f5bdf05d3e2379d5e))
+
 ## [1.1.1](https://github.com/rafael-rollo/tuitr-api/compare/v1.1.0...v1.1.1) (2025-01-09)
 
 
