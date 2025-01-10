@@ -14,14 +14,14 @@ public class CustomizedPostRepositoryImpl implements CustomizedPostRepository {
 
     @Override
     public List<Post> findAllPostsOf(User user) {
-        String whereClause = "where p.author.id = :userId";
+        String whereClause = "WHERE p.replyingTo = null AND p.author.id = :userId";
         return selectWithMultipleFetch(user, whereClause);
     }
 
     @Override
     public List<Post> findAllPostsOfFollowedAccountsBy(User user) {
-        String whereClause = "where p.author.id in " +
-                "(select following.id from User u join u.following following where u.id = :userId)";
+        String whereClause = "WHERE p.replyingTo = null AND (p.author.id = :userId OR p.author.id IN " +
+                "(select following.id from User u join u.following following where u.id = :userId))";
 
         List<Post> posts = selectWithMultipleFetch(user, whereClause);
 
