@@ -1,5 +1,17 @@
 # Semantic Versioning Changelog
 
+# [2.0.0](https://github.com/rafael-rollo/tuitr-api/compare/v1.1.2...v2.0.0) (2025-01-15)
+
+
+### Code Refactoring
+
+* upgrades project to spring boot 3.4.1 latest ([4069c76](https://github.com/rafael-rollo/tuitr-api/commit/4069c76a79b69456a40e479586d5b7f711c6ae88))
+
+
+### BREAKING CHANGES
+
+* After upgrading to the latest Spring versions the app now requires JRE 17 to run.
+
 ## [1.1.2](https://github.com/rafael-rollo/tuitr-api/compare/v1.1.1...v1.1.2) (2025-01-10)
 
 

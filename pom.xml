@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.rollo.rafael</groupId>
 	<artifactId>tuitr-api</artifactId>
-	<version>1.1.2</version>
+	<version>2.0.0</version>
 	<name>tuitr-api</name>
 	<description>A REST API for some app like Twitter</description>
 	<properties>
