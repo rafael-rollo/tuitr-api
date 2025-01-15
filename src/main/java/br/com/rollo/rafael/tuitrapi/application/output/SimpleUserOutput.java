@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SimpleUserOutput {
-    private Long id;
-    private String username;
-    private String fullName;
-    private String profilePicturePath;
+    private final Long id;
+    private final String username;
+    private final String fullName;
+    private final String profilePicturePath;
 
     private SimpleUserOutput(User user) {
         this.id = user.getId();

@@ -6,7 +6,7 @@ import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.Past;
+import jakarta.validation.constraints.Past;
 import java.time.LocalDate;
 
 public class UpdateProfileInput {
@@ -46,7 +46,7 @@ public class UpdateProfileInput {
     }
 
     public User build() {
-        User user = new User(this.username);
+        var user = new User(this.username);
         user.setFullName(this.fullName);
         user.setProfilePicturePath(this.profilePicturePath);
         user.setBirthDate(this.birthDate);

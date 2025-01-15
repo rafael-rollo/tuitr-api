@@ -1,19 +1,20 @@
-package br.com.rollo.rafael.tuitrapi.domain.users;
+package br.com.rollo.rafael.tuitrapi.domain.posts;
 
 import static br.com.rollo.rafael.tuitrapi.domain.posts.Post.Content;
-import br.com.rollo.rafael.tuitrapi.domain.posts.Post;
+
+import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PostTest {
 
-    private User originPostAuthor = new User(
+    private final User originPostAuthor = new User(
                 "john-doe",
                         "john.doe@dmn.co",
                         "***");
 
-    private Post originPost = Post.createAsSinglePost(
+    private final Post originPost = Post.createAsSinglePost(
             Content.withText("Hi everyone!"),
             originPostAuthor);
 
@@ -27,8 +28,6 @@ public class PostTest {
         Post createdAsSingle = Post.createAsSinglePost(
                 Content.withText("Welcome to the Tuítr"),
                 author);
-
-        System.out.println(createdAsSingle);
 
         assertThat(createdAsSingle.isReply()).isFalse();
         assertThat(createdAsSingle.isRepost()).isFalse();
@@ -45,8 +44,6 @@ public class PostTest {
                 Content.withText("Hi John, welcome to the Tuítr"),
                 author,
                 originPost);
-
-        System.out.println(createdAsReply);
 
         assertThat(createdAsReply.isReply()).isTrue();
         assertThat(createdAsReply.getReplyingTo()).isEqualTo(originPost);
@@ -65,8 +62,6 @@ public class PostTest {
         Post createdAsRepost = Post.createAsRepost(
                 author,
                 originPost);
-
-        System.out.println(createdAsRepost);
 
         assertThat(createdAsRepost.isReply()).isFalse();
         assertThat(createdAsRepost.getReplyingTo()).isEqualTo(null);

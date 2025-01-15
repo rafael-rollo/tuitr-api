@@ -2,8 +2,8 @@ package br.com.rollo.rafael.tuitrapi.domain.users;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +20,7 @@ public class Role implements GrantedAuthority {
 	/**
      * @deprecated
      */
+	@Deprecated
 	public Role() {
 	}
 
@@ -36,7 +37,7 @@ public class Role implements GrantedAuthority {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Role role = (Role) o;
+        var role = (Role) o;
         return Objects.equals(authority, role.authority);
     }
 

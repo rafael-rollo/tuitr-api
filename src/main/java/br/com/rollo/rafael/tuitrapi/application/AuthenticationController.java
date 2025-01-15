@@ -4,7 +4,7 @@ import br.com.rollo.rafael.tuitrapi.application.input.SignInInput;
 import br.com.rollo.rafael.tuitrapi.application.output.UserAuthenticationOutput;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import br.com.rollo.rafael.tuitrapi.domain.users.UserRepository;
-import br.com.rollo.rafael.tuitrapi.security.TokenManager;
+import br.com.rollo.rafael.tuitrapi.infrastructure.security.TokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +13,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -38,9 +36,9 @@ public class AuthenticationController {
 			Authentication authentication = authManager
 					.authenticate(authenticationToken);
 
-			String jwt = tokenGeneration.generateToken(authentication);
+			var jwt = tokenGeneration.generateToken(authentication);
 
-			User user = (User) authentication.getPrincipal();
+			var user = (User) authentication.getPrincipal();
 			return ResponseEntity.ok(UserAuthenticationOutput.buildFrom(user, jwt));
 
 		} catch (AuthenticationException e) {

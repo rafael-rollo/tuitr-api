@@ -1,19 +1,20 @@
 package br.com.rollo.rafael.tuitrapi.domain.users;
 
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 
 @Entity
+@Table(name="end_user")
 public class User implements UserDetails, UpdatableUserInfo {
 	
 	private static final long serialVersionUID = -5469393828158054187L;
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -21,7 +22,7 @@ public class User implements UserDetails, UpdatableUserInfo {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> authorities = new ArrayList<>();
+    private final List<Role> authorities = new ArrayList<>();
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -32,14 +33,15 @@ public class User implements UserDetails, UpdatableUserInfo {
     private String location;
 
     @OneToMany(cascade = CascadeType.REMOVE)
-    private Set<User> followers = new HashSet<>();
+    private final Set<User> followers = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.REMOVE)
-    private Set<User> following = new HashSet<>();
+    private final Set<User> following = new HashSet<>();
 
     /**
      * @deprecated
      */
+    @Deprecated
     public User() {	}
 
     public User(String username, String email, String password) {
@@ -181,9 +183,7 @@ public class User implements UserDetails, UpdatableUserInfo {
 
     public boolean isAdmin() {
         return this.authorities.stream()
-                .filter(role -> Role.ADMIN.equals(role))
-                .findFirst()
-                .isPresent();
+                .anyMatch(Role.ADMIN::equals);
     }
 
     public void updateBy(UpdatableUserInfo updateInfo) {

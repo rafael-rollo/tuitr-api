@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserUpdate {
 
-    private UserRepository users;
+    private final UserRepository users;
 
     @Autowired
     public UserUpdate(UserRepository users) {
@@ -14,7 +14,7 @@ public class UserUpdate {
     }
 
     public User executeFor(String username, User userUpdate) {
-        User foundUser = users.findByUsername(username)
+        var foundUser = users.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("No user found for " + username));
 
         foundUser.updateBy(userUpdate);

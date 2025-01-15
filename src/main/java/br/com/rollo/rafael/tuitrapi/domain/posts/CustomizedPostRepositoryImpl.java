@@ -1,10 +1,9 @@
 package br.com.rollo.rafael.tuitrapi.domain.posts;
 
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
-import org.hibernate.annotations.QueryHints;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import java.util.List;
 
 public class CustomizedPostRepositoryImpl implements CustomizedPostRepository {
@@ -14,18 +13,15 @@ public class CustomizedPostRepositoryImpl implements CustomizedPostRepository {
 
     @Override
     public List<Post> findAllPostsOf(User user) {
-        String whereClause = "WHERE p.replyingTo = null AND p.author.id = :userId";
+        var whereClause = "WHERE p.replyingTo = null AND p.author.username = :username";
         return selectWithMultipleFetch(user, whereClause);
     }
 
     @Override
     public List<Post> findAllPostsOfFollowedAccountsBy(User user) {
-        String whereClause = "WHERE p.replyingTo = null AND (p.author.id = :userId OR p.author.id IN " +
-                "(select following.id from User u join u.following following where u.id = :userId))";
-
-        List<Post> posts = selectWithMultipleFetch(user, whereClause);
-
-        return posts;
+        var whereClause = "WHERE p.replyingTo = null AND (p.author.username = :username OR p.author.username IN " +
+                "(select following.username from User u join u.following following where u.username = :username))";
+        return selectWithMultipleFetch(user, whereClause);
     }
 
     /**
@@ -36,18 +32,16 @@ public class CustomizedPostRepositoryImpl implements CustomizedPostRepository {
      * @return the list of posts fetched
      */
     private List<Post> selectWithMultipleFetch(User user, String jpqlWhereClause) {
-        List<Post> posts = entityManager.createQuery("select distinct p from Post p " +
+        var posts = entityManager.createQuery("select distinct p from Post p " +
                 "left join fetch p.lovers " +
                 jpqlWhereClause, Post.class)
-                .setParameter("userId", user.getId())
-                .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
+                .setParameter("username", user.getUsername())
                 .getResultList();
 
         posts = entityManager.createQuery("select distinct p from Post p " +
                 "left join fetch p.replies rpl " +
                 "where p in :posts ", Post.class)
                 .setParameter("posts", posts)
-                .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
                 .getResultList();
 
         posts = entityManager.createQuery("select distinct p from Post p " +
@@ -55,7 +49,6 @@ public class CustomizedPostRepositoryImpl implements CustomizedPostRepository {
                 "where p in :posts " +
                 "order by p.createdAt desc", Post.class)
                 .setParameter("posts", posts)
-                .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
                 .getResultList();
 
         return posts;

@@ -12,21 +12,20 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.transaction.Transactional;
-import javax.validation.Valid;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/api/user")
 public class UsersController {
 
-    private UserRepository users;
-    private UserUpdate userUpdate;
+    private final UserRepository users;
+    private final UserUpdate userUpdate;
 
     @Autowired
     public UsersController(UserRepository users, UserUpdate userUpdate) {
@@ -36,13 +35,13 @@ public class UsersController {
 
     @GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserProfileOutput> getUserProfileInfo(@PathVariable String username) {
-        Optional<User> possibleUser = users.findByUsername(username);
+        Optional<User> user = users.findByUsername(username);
 
-        if (!possibleUser.isPresent()) {
+        if (user.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(UserProfileOutput.buildFrom(possibleUser.get()));
+        return ResponseEntity.ok(UserProfileOutput.buildFrom(user.get()));
     }
 
     @Transactional
@@ -50,9 +49,9 @@ public class UsersController {
     public ResponseEntity<Void> userSignUp(@Valid @RequestBody SignUpInput input,
                                            BCryptPasswordEncoder encoder,
                                            UriComponentsBuilder URIBuilder) {
-        User newUser = users.save(input.build(encoder));
+        var newUser = users.save(input.build(encoder));
 
-        URI userPath = URIBuilder
+        var userPath = URIBuilder
                 .path("/api/user/{username}")
                 .buildAndExpand(newUser.getUsername())
                 .toUri();
@@ -72,9 +71,9 @@ public class UsersController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
 
-        User user = input.build();
+        var user = input.build();
 
-        User updatedUser = userUpdate.executeFor(username, user);
+        var updatedUser = userUpdate.executeFor(username, user);
         return ResponseEntity.ok(UserProfileOutput.buildFrom(updatedUser));
     }
 

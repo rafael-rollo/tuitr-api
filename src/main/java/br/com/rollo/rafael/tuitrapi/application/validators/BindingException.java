@@ -1,5 +1,6 @@
 package br.com.rollo.rafael.tuitrapi.application.validators;
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
@@ -19,7 +20,7 @@ public class BindingException extends RuntimeException {
     }
 
     public List<String> getErrorMessages() {
-        return errors.stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
+        return errors.stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList());
     }
 
     public String getPrimaryErrorMessage() {

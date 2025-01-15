@@ -1,10 +1,9 @@
-package br.com.rollo.rafael.tuitrapi.configuration;
+package br.com.rollo.rafael.tuitrapi.infrastructure.configuration;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
+import br.com.rollo.rafael.tuitrapi.infrastructure.security.MySqlJdbcMutableAclService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.ehcache.EhCacheFactoryBean;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
@@ -13,43 +12,25 @@ import org.springframework.security.acls.AclPermissionCacheOptimizer;
 import org.springframework.security.acls.AclPermissionEvaluator;
 import org.springframework.security.acls.domain.*;
 import org.springframework.security.acls.jdbc.BasicLookupStrategy;
-import org.springframework.security.acls.jdbc.JdbcMutableAclService;
 import org.springframework.security.acls.jdbc.LookupStrategy;
 import org.springframework.security.acls.model.AclCache;
 import org.springframework.security.acls.model.AclService;
 import org.springframework.security.acls.model.MutableAclService;
 import org.springframework.security.acls.model.PermissionGrantingStrategy;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.sql.DataSource;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity
 public class SecurityACLConfiguration {
 
     @Autowired
     private DataSource dataSource;
 
-    @Bean
-    public EhCacheManagerFactoryBean aclCacheManager() {
-        return new EhCacheManagerFactoryBean();
-    }
-
-    @Bean
-    public EhCacheFactoryBean aclEhCacheFactoryBean(EhCacheManagerFactoryBean aclCacheManagerFactory) {
-        CacheManager aclCacheManager = aclCacheManagerFactory.getObject();
-
-        EhCacheFactoryBean ehCacheFactoryBean = new EhCacheFactoryBean();
-        ehCacheFactoryBean.setCacheManager(aclCacheManager);
-        ehCacheFactoryBean.setCacheName("aclCache");
-        return ehCacheFactoryBean;
-    }
-
-    @Bean
-    public PermissionGrantingStrategy permissionGrantingStrategy() {
-        return new DefaultPermissionGrantingStrategy(new ConsoleAuditLogger());
-    }
+    @Autowired
+    private CacheManager cacheManager;
 
     @Bean
     public AclAuthorizationStrategy aclAuthorizationStrategy() {
@@ -58,11 +39,19 @@ public class SecurityACLConfiguration {
     }
 
     @Bean
-    public EhCacheBasedAclCache aclCache(EhCacheFactoryBean ehCacheFactoryBean,
-                                         PermissionGrantingStrategy permissionGrantingStrategy,
-                                         AclAuthorizationStrategy aclAuthorizationStrategy) {
-        Ehcache ehCache = ehCacheFactoryBean.getObject();
-        return new EhCacheBasedAclCache(ehCache, permissionGrantingStrategy, aclAuthorizationStrategy);
+    public PermissionGrantingStrategy permissionGrantingStrategy() {
+        return new DefaultPermissionGrantingStrategy(new ConsoleAuditLogger());
+    }
+
+    @Bean
+    public AclCache aclCache(PermissionGrantingStrategy permissionGrantingStrategy,
+                             AclAuthorizationStrategy aclAuthorizationStrategy) {
+        var aclCache = cacheManager.getCache("aclCache");
+
+        return new SpringCacheBasedAclCache(
+                aclCache,
+                permissionGrantingStrategy,
+                aclAuthorizationStrategy);
     }
 
     @Bean
@@ -74,10 +63,7 @@ public class SecurityACLConfiguration {
 
     @Bean
     public MutableAclService aclService(LookupStrategy lookupStrategy, AclCache aclCache) {
-        JdbcMutableAclService aclService = new JdbcMutableAclService(dataSource, lookupStrategy, aclCache);
-        aclService.setClassIdentityQuery("call identity()");
-        aclService.setSidIdentityQuery("call identity()");
-        return aclService;
+        return new MySqlJdbcMutableAclService(dataSource, lookupStrategy, aclCache);
     }
 
     @Bean
@@ -94,14 +80,12 @@ public class SecurityACLConfiguration {
     public MethodSecurityExpressionHandler defaultMethodSecurityExpressionHandler(
             AclPermissionEvaluator permissionEvaluator,
             AclPermissionCacheOptimizer permissionCacheOptimizer) {
-        DefaultMethodSecurityExpressionHandler expressionHandler = new DefaultMethodSecurityExpressionHandler();
+        var expressionHandler = new DefaultMethodSecurityExpressionHandler();
 
         expressionHandler.setPermissionEvaluator(permissionEvaluator);
         expressionHandler.setPermissionCacheOptimizer(permissionCacheOptimizer);
 
         return expressionHandler;
     }
-
-
 
 }

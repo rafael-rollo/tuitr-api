@@ -24,7 +24,7 @@ public class AtLeastOneInformativeContentValidator implements Validator {
     public void validate(Object target, Errors errors) {
         PostInput input = (PostInput) target;
 
-        List<String> contents = Arrays.asList(
+        var contents = Arrays.asList(
                 input.getTextContent(),
                 input.getImagePath());
 

@@ -5,7 +5,7 @@ import br.com.rollo.rafael.tuitrapi.application.validators.UniqueUsername;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 public class SignUpInput {
 
@@ -33,7 +33,7 @@ public class SignUpInput {
     }
 
     public User build(PasswordEncoder encoder) {
-        String password = encoder.encode(this.password);
+        var password = encoder.encode(this.password);
         return new User(this.username, this.email, password);
     }
 }

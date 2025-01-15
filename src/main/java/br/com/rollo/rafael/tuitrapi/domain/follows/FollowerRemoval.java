@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FollowerRemoval {
 
-    private UserRepository users;
+    private final UserRepository users;
 
     @Autowired
     public FollowerRemoval(UserRepository users) {
@@ -16,7 +16,7 @@ public class FollowerRemoval {
     }
 
     public void execute(User user, User follower) {
-        User managedUser = users.findById(user.getId()).get();
+        var managedUser = users.findById(user.getId()).get();
         managedUser.removeFollower(follower);
     }
 }

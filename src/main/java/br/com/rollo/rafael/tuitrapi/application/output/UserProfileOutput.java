@@ -6,18 +6,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 
 public class UserProfileOutput {
-    private Long id;
-    private String username;
-    private String email;
-    private String fullName;
-    private String profilePicturePath;
+    private final Long id;
+    private final String username;
+    private final String email;
+    private final String fullName;
+    private final String profilePicturePath;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthDate;
+    private final LocalDate birthDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate joinedAt;
-    private String location;
+    private final LocalDate joinedAt;
+    private final String location;
 
     private UserProfileOutput(User user) {
         this.id = user.getId();

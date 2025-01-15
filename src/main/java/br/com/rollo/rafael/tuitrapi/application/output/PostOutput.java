@@ -9,18 +9,18 @@ import java.util.stream.Collectors;
 
 public class PostOutput {
 
-    private Long id;
+    private final Long id;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime createdAt;
-    private String textContent;
-    private String imagePath;
-    private SimpleUserOutput author;
-    private PostOutput replyingTo;
-    private PostOutput reposting;
-    private int loves;
-    private int replies;
-    private int reposts;
+    private final LocalDateTime createdAt;
+    private final String textContent;
+    private final String imagePath;
+    private final SimpleUserOutput author;
+    private final PostOutput replyingTo;
+    private final PostOutput reposting;
+    private final int loves;
+    private final int replies;
+    private final int reposts;
 
     private PostOutput(Post post) {
         this.id = post.getId();

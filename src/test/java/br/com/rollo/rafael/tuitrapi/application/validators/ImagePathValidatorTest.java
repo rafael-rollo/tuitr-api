@@ -15,7 +15,7 @@ public class ImagePathValidatorTest {
     private static final String PNG_EXTENSION = ".png";
     private static final String STRANGE_EXTENSION = ".strg";
 
-    private ImagePathValidator validator = new ImagePathValidator();
+    private final ImagePathValidator validator = new ImagePathValidator();
 
     @Test
     public void shouldNotReportInvalidIfInputIsNull() {
@@ -28,7 +28,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldNotReportInvalidIfInputIsEmpty() {
         // given empty string
-        String input = "";
+        var input = "";
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -38,7 +38,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnValidForHTTPAndJPG() {
         // given
-        String input = HTTP_SCHEME + "domain.com/resources/example" + JPG_EXTENSION;
+        var input = HTTP_SCHEME + "domain.com/resources/example" + JPG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -48,7 +48,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnValidForHTTPAndJPEG() {
         // given
-        String input = HTTP_SCHEME + "domain.com/resources/example" + JPEG_EXTENSION;
+        var input = HTTP_SCHEME + "domain.com/resources/example" + JPEG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -58,7 +58,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnValidForHTTPAndPNG() {
         // given
-        String input = HTTP_SCHEME + "domain.com/resources/example" + PNG_EXTENSION;
+        var input = HTTP_SCHEME + "domain.com/resources/example" + PNG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -68,7 +68,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnValidForHTTPSAndJPG() {
         // given
-        String input = HTTPS_SCHEME + "domain.com/resources/example" + JPG_EXTENSION;
+        var input = HTTPS_SCHEME + "domain.com/resources/example" + JPG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -78,7 +78,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnValidForHTTPSAndJPEG() {
         // given
-        String input = HTTPS_SCHEME + "domain.com/resources/example" + JPEG_EXTENSION;
+        var input = HTTPS_SCHEME + "domain.com/resources/example" + JPEG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -88,7 +88,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnValidForHTTPSAndPNG() {
         // given
-        String input = HTTPS_SCHEME + "domain.com/resources/example" + PNG_EXTENSION;
+        var input = HTTPS_SCHEME + "domain.com/resources/example" + PNG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -98,7 +98,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnInvalidForStrangeSchemeAndValidFileExtension() {
         // given
-        String input = STRANGE_SCHEME + "domain.com/resources/example" + PNG_EXTENSION;
+        var input = STRANGE_SCHEME + "domain.com/resources/example" + PNG_EXTENSION;
         // when
         boolean valid = validator.isValid(input, null);
         // then
@@ -108,7 +108,7 @@ public class ImagePathValidatorTest {
     @Test
     public void shouldReturnInvalidForValidSchemeAndAnotherFileExtension() {
         // given
-        String input = HTTPS_SCHEME + "domain.com/resources/example" + STRANGE_SCHEME;
+        var input = HTTPS_SCHEME + "domain.com/resources/example" + STRANGE_SCHEME;
         // when
         boolean valid = validator.isValid(input, null);
         // then

@@ -10,7 +10,7 @@ public class FollowRemoval {
 
     private static final String BROADCAST_USER_USERNAME = "tuitr";
 
-    private UserRepository users;
+    private final UserRepository users;
 
     @Autowired
     public FollowRemoval(UserRepository users) {
@@ -22,7 +22,7 @@ public class FollowRemoval {
             throw new BroadcastUserUnfollowException("It is not possible to unfollow the base user of the platform");
         }
 
-        User managedUser = users.findById(user.getId()).get();
+        var managedUser = users.findById(user.getId()).get();
         managedUser.unfollow(unfollowingUser);
     }
 }

@@ -4,9 +4,9 @@ import br.com.rollo.rafael.tuitrapi.domain.users.User;
 
 public class UserAuthenticationOutput {
 	
-    private String username;
-    private String role;
-    private Authentication authentication;
+    private final String username;
+    private final String role;
+    private final Authentication authentication;
     
     private UserAuthenticationOutput(User user, String token) {
         this.username = user.getUsername();
@@ -27,8 +27,8 @@ public class UserAuthenticationOutput {
 	}
 	
 	public static class Authentication {
-		private String tokenType;
-	    private String token;
+		private final String tokenType;
+	    private final String token;
 
 	    public Authentication(String tokenType, String token) {
 	        this.tokenType = tokenType;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FollowAdding {
 
-    private UserRepository users;
+    private final UserRepository users;
 
     @Autowired
     public FollowAdding(UserRepository users) {
@@ -16,7 +16,7 @@ public class FollowAdding {
     }
 
     public User execute(User user, User followingUser) {
-        User managedUser = users.findById(user.getId()).get();
+        var managedUser = users.findById(user.getId()).get();
 
         managedUser.follow(followingUser);
         return followingUser;

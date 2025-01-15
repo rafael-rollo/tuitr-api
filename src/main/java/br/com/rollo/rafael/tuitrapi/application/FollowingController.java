@@ -10,20 +10,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/api/user/following")
 public class FollowingController {
 
-    private UserRepository users;
-    private FollowAdding followAdding;
-    private FollowRemoval followRemoval;
+    private final UserRepository users;
+    private final FollowAdding followAdding;
+    private final FollowRemoval followRemoval;
 
     @Autowired
     public FollowingController(UserRepository users, FollowAdding followAdding, FollowRemoval followRemoval) {
@@ -34,7 +33,7 @@ public class FollowingController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SimpleUserOutput>> listFollowing(@AuthenticationPrincipal User loggedUser) {
-        List<User> followingUsers = users.findAllFollowingsBy(loggedUser.getId());
+        var followingUsers = users.findAllFollowingsBy(loggedUser.getId());
         return ResponseEntity.ok(SimpleUserOutput.listFrom(followingUsers));
     }
 
@@ -44,7 +43,7 @@ public class FollowingController {
                                                        @AuthenticationPrincipal User loggedUser) {
         Optional<User> following = users.findById(userId);
 
-        if (!following.isPresent()) {
+        if (following.isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
 
@@ -60,7 +59,7 @@ public class FollowingController {
                                              @AuthenticationPrincipal User loggedUser) {
         Optional<User> unfollowing = users.findById(userId);
 
-        if (!unfollowing.isPresent()) {
+        if (unfollowing.isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
 

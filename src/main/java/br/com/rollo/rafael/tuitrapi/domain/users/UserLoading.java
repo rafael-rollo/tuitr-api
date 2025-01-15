@@ -16,9 +16,9 @@ public class UserLoading implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> possibleUser = users.findByUsername(username);
+		Optional<User> user = users.findByUsername(username);
 		
-		return possibleUser.orElseThrow(() -> 
+		return user.orElseThrow(() ->
 			new UsernameNotFoundException("Não foi encontrado usuário para o username: " + username));
 	}
 }

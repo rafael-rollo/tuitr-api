@@ -1,4 +1,4 @@
-package br.com.rollo.rafael.tuitrapi.security;
+package br.com.rollo.rafael.tuitrapi.infrastructure.security;
 
 import br.com.rollo.rafael.tuitrapi.domain.users.UserLoading;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -7,16 +7,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class JWTAuthenticationFilter extends OncePerRequestFilter {
 	
-    private TokenManager tokenManager;
-    private UserLoading userLoading;
+    private final TokenManager tokenManager;
+    private final UserLoading userLoading;
 
     public JWTAuthenticationFilter(TokenManager tokenManager, UserLoading userLoading) {
 	    this.tokenManager = tokenManager;
@@ -24,18 +24,17 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
     }
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, 
+	protected void doFilterInternal(HttpServletRequest request,
 			HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		
-		String jwt = getTokenFrom(request);
+		var jwt = getTokenFrom(request);
 		
         if (tokenManager.isValid(jwt)) {
-            String username = tokenManager.getUsernameFromToken(jwt);
-            UserDetails userDetails = userLoading.loadUserByUsername(username);
+            var username = tokenManager.getUsernameFromToken(jwt);
+            var userDetails = userLoading.loadUserByUsername(username);
             
-            UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(userDetails, 
+            var authentication = new UsernamePasswordAuthenticationToken(userDetails,
                         null, userDetails.getAuthorities());
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -46,10 +45,10 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 	}
 
 	private String getTokenFrom(HttpServletRequest request) {
-		String bearerToken = request.getHeader("Authorization");
+		var bearerToken = request.getHeader("Authorization");
 		
 		if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
-			return bearerToken.substring(7, bearerToken.length());
+			return bearerToken.substring(7);
 		}
 		
 		return null;

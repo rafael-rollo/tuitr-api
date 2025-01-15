@@ -1,4 +1,4 @@
-package br.com.rollo.rafael.tuitrapi.security;
+package br.com.rollo.rafael.tuitrapi.infrastructure.security;
 
 import br.com.rollo.rafael.tuitrapi.domain.users.Role;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 @Service
 public class ACLPermissionRecord<T> {
-    private MutableAclService aclService;
+    private final MutableAclService aclService;
 
     @Autowired
     public ACLPermissionRecord(MutableAclService aclService) {
@@ -22,8 +22,8 @@ public class ACLPermissionRecord<T> {
     }
 
     public void executeFor(T object, Permission... permissions) {
-        MutableAcl acl = aclService.createAcl(new ObjectIdentityImpl(object));
-        PrincipalSid sid = (PrincipalSid) acl.getOwner();
+        var acl = aclService.createAcl(new ObjectIdentityImpl(object));
+        var sid = (PrincipalSid) acl.getOwner();
 
         Arrays.asList(permissions).forEach(permission -> {
             acl.insertAce(acl.getEntries().size(),
@@ -35,7 +35,7 @@ public class ACLPermissionRecord<T> {
     }
 
     private void applyPermissionForAdmins(MutableAcl acl, Permission permission) {
-        GrantedAuthoritySid authoritySid = new GrantedAuthoritySid(Role.ADMIN);
-        acl.insertAce(acl.getEntries().size(), permission, authoritySid, true);
+        var grantedAuthoritySid = new GrantedAuthoritySid(Role.ADMIN);
+        acl.insertAce(acl.getEntries().size(), permission, grantedAuthoritySid, true);
     }
 }

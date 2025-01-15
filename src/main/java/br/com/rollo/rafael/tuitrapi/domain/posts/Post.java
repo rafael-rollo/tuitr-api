@@ -3,7 +3,7 @@ package br.com.rollo.rafael.tuitrapi.domain.posts;
 import br.com.rollo.rafael.tuitrapi.domain.users.User;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -28,22 +28,23 @@ public class Post {
     private Post replyingTo;
 
     @OneToMany(mappedBy = "replyingTo")
-    private List<Post> replies = new ArrayList<>();
+    private final List<Post> replies = new ArrayList<>();
 
     @ManyToOne
     private Post reposting;
 
     @OneToMany(mappedBy = "reposting")
-    private List<Post> reposts = new ArrayList<>();
+    private final List<Post> reposts = new ArrayList<>();
 
     @ManyToMany
-    private Set<User> lovers = new HashSet<>();
+    private final Set<User> lovers = new HashSet<>();
 
     /**
      * @deprecated in favor of createAsSinglePost(content, author) |
      * createAsReply(content, author, replyingTo Post) |
      * createAsRepost(author, reposting Post)
      */
+    @Deprecated
     public Post() {
         this.createdAt = LocalDateTime.now();
     }
@@ -54,6 +55,15 @@ public class Post {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    /**
+     * @deprecated in favor of using the default one from Post() constructor
+     */
+    @SuppressWarnings("DeprecatedIsStillUsed")
+    @Deprecated
+    public void setCreatedAt(LocalDateTime creationDateTime) {
+        this.createdAt = creationDateTime;
     }
 
     public String getTextContent() {
@@ -110,15 +120,14 @@ public class Post {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Post post = (Post) o;
-        return createdAt.equals(post.createdAt) && author.equals(post.author);
+        var post = (Post) o;
+        return Objects.equals(createdAt, post.createdAt) && Objects.equals(author, post.author) && Objects.equals(replyingTo, post.replyingTo) && Objects.equals(reposting, post.reposting);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(createdAt, author);
+        return Objects.hash(createdAt, author, replyingTo, reposting);
     }
 
     @Override
@@ -169,8 +178,8 @@ public class Post {
     }
 
     public static class Content {
-        private String text;
-        private String imagePath;
+        private final String text;
+        private final String imagePath;
 
         private Content(String textContent, String imagePath) {
             this.text = textContent;

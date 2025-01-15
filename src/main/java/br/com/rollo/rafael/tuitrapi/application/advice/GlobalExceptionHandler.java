@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindingException.class)
     public ResponseEntity<APIError> processBindingFailure(BindingException exception) {
-        APIError error = new APIError(exception.getPrimaryErrorMessage());
+        var error = new APIError(exception.getPrimaryErrorMessage());
         return ResponseEntity.badRequest().body(error);
     }
 
@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BroadcastUserUnfollowException.class)
     public ResponseEntity<APIError> processInvalidUnfollow(BroadcastUserUnfollowException exception) {
-        APIError error = new APIError(exception.getMessage());
+        var error = new APIError(exception.getMessage());
         return ResponseEntity.badRequest().body(error);
     }
 
