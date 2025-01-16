@@ -3,6 +3,8 @@
 ## Description
 This repository contains the code for a REST API of some app similar to Twitter, referred to as "Tuitr API". The project implements the core functionalities of a social media platform, including user interactions, posting, etc. The API is built using Java, Spring Boot 3, and Maven, with a transient in-memory data layer powered by the H2 database.
 
+You can access the fully documented resources to simulate the app's usage. While the server is running, the data you create is there. Once the process is taken down, the data is destroyed, and a default set is available again next time by running a database migration with a dump file on startup. This dynamics allows you to code a set of features in a client app that goes beyond the classic read-only operations you can have by using the most famous public APIs out there. Enjoy!
+
 ## Technologies Used
 - **Maven project**
 - **Java 17**
@@ -66,5 +68,3 @@ java -Dserver.port=8000 -jar tuitr-api-2.0.0.jar
 You can see the interactive documentation over the http://localhost:8080/v3/api-docs/ui URL.
 
 <img width="1792" alt="Screenshot 2024-09-25 at 11 53 10" src="https://github.com/user-attachments/assets/f60a7f2b-f8ee-4ec2-b223-a3b1886081d8">
-
-You can access the documented resources to simulate the app's usage. While the server is running, the data you create is there. Once the process is taken down, the data is destroyed, and a default set is available again next time by running a database migration with a dump file on startup. This dynamics allows you to code a set of features in a client app that goes beyond the classic read-only operations you can have by using the most famous public APIs out there. Enjoy!
